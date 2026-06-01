@@ -1,0 +1,15 @@
+{
+  "name": "ysdlvdaifile",
+  "version": "1.0.0",
+  "description": "履带式巡检车项目进度汇报平台 - Crawler Inspection Vehicle Progress Report",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["inspection-vehicle", "crawler", "progress-report"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
