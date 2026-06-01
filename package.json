@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "mkdir -p dist/css dist/js && cp public/index.html dist/index.html && cp public/css/style.css dist/css/style.css && cp public/js/main.js dist/js/main.js"
   },
   "keywords": ["inspection-vehicle", "crawler", "progress-report"],
   "license": "MIT",
