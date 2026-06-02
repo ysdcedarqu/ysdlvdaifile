@@ -32,7 +32,7 @@
                 <a href="/" class="nav-link">首页</a>
                 <a href="/#progress" class="nav-link" data-section="progress">进度</a>
                 <a href="/weekly/" class="nav-link">周报</a>
-                <a href="/#milestones" class="nav-link" data-section="milestones">里程碑</a>
+                <a href="/#milestones" class="nav-link" data-section="milestones">周完成</a>
                 <a href="/issues/" class="nav-link">问题追踪</a>
                 <a href="/#tech" class="nav-link" data-section="tech">技术架构</a>
             </nav>
@@ -69,7 +69,7 @@
       </p>
       <div class="hero-stats">
         <div class="stat-card">
-          <span class="stat-value" data-count="88">0</span>
+          <span class="stat-value" data-count="84">0</span>
           <span class="stat-unit">%</span>
           <span class="stat-label">总体进度</span>
         </div>
@@ -162,17 +162,22 @@
         <div class="arch-item android">
           <span class="arch-icon">&#128241;</span>
           <strong>Android 平板</strong>
-          <p>Qt 6.8 + QML<br/>AGVNav APK<br/>arm64-v8a</p>
+          <p>Qt 6.8 + QML<br/>AGVNav APK</p>
         </div>
         <div class="arch-item windows">
           <span class="arch-icon">&#128187;</span>
           <strong>Windows PC</strong>
-          <p>Qt 6.8 Desktop<br/>AGVNav.exe<br/>键鼠交互</p>
+          <p>Qt 6.8 Desktop<br/>AGVNav.exe</p>
+        </div>
+        <div class="arch-item windows">
+          <span class="arch-icon">&#127760;</span>
+          <strong>浏览器</strong>
+          <p>WebRTC 播放<br/>语音广播 SPA</p>
         </div>
       </div>
     </div>
 
-    <div class="arch-arrow">▼ HTTP / WebSocket ▼</div>
+    <div class="arch-arrow">▼ HTTP / WebSocket / RTMP ▼</div>
 
     <!-- 后端层 -->
     <div class="arch-layer">
@@ -181,55 +186,70 @@
         <div class="arch-item backend">
           <span class="arch-icon">&#9881;</span>
           <strong>FastAPI :5003</strong>
-          <p>Python 3<br/>uvicorn<br/>统一控制中心 v3.0</p>
+          <p>GPIO/PELCO-D<br/>音频/海康SDK</p>
         </div>
         <div class="arch-item backend">
           <span class="arch-icon">&#128225;</span>
-          <strong>C++ PTZ Server</strong>
-          <p>TCP :9988<br/>海康 SDK<br/>MJPEG :9990</p>
+          <strong>PTZ Server</strong>
+          <p>TCP :9988<br/>MJPEG :9990</p>
+        </div>
+        <div class="arch-item backend">
+          <span class="arch-icon">&#127909;</span>
+          <strong>快直播推流</strong>
+          <p>FFmpeg H.264<br/>RTMP→WebRTC</p>
+        </div>
+        <div class="arch-item backend">
+          <span class="arch-icon">&#128266;</span>
+          <strong>语音广播</strong>
+          <p>WebSocket PCM<br/>ALSA aplay</p>
         </div>
       </div>
     </div>
 
-    <div class="arch-arrow">▼ GPIO / RS-485 / TCP ▼</div>
+    <div class="arch-arrow">▼ GPIO / RS-485 / CAN / TCP ▼</div>
 
     <!-- 硬件层 -->
     <div class="arch-layer">
       <div class="arch-label">硬件</div>
       <div class="arch-items">
         <div class="arch-item hardware">
-          <span class="arch-icon">&#9889;</span>
-          <strong>GPIO</strong>
-          <p>引脚 22/27<br/>BCM 编号</p>
-        </div>
-        <div class="arch-item hardware">
           <span class="arch-icon">&#128247;</span>
           <strong>海康摄像头</strong>
-          <p>PTZ 云台<br/>SDK 控制</p>
+          <p>PTZ 云台</p>
         </div>
         <div class="arch-item hardware">
-          <span class="arch-icon">&#128266;</span>
-          <strong>USB 声卡</strong>
-          <p>PCM 音频<br/>ALSA 播放</p>
+          <span class="arch-icon">&#128295;</span>
+          <strong>TK-mid 底盘</strong>
+          <p>CAN 500Kbps</p>
         </div>
         <div class="arch-item hardware">
           <span class="arch-icon">&#9881;</span>
           <strong>PELCO-D 云台</strong>
-          <p>RS-485<br/>/dev/ttySC0</p>
+          <p>RS-485 串口</p>
+        </div>
+        <div class="arch-item hardware">
+          <span class="arch-icon">&#127908;</span>
+          <strong>USB 摄像头</strong>
+          <p>V4L2 采集</p>
         </div>
       </div>
     </div>
 
-    <div class="arch-arrow">▼ HTTP Trigger ▼</div>
+    <div class="arch-arrow">▼ HTTP Trigger / RTMP ▼</div>
 
     <!-- 云端层 -->
     <div class="arch-layer">
       <div class="arch-label">云端</div>
-      <div class="arch-items single">
+      <div class="arch-items">
         <div class="arch-item cloud">
           <span class="arch-icon">&#9729;</span>
           <strong>巡检服务器</strong>
-          <p>8.148.200.227 :9998<br/>图片解析 API<br/>巡检记录存储</p>
+          <p>:9998 图片解析</p>
+        </div>
+        <div class="arch-item cloud">
+          <span class="arch-icon">&#127909;</span>
+          <strong>腾讯快直播</strong>
+          <p>WebRTC CDN<br/><1s 延迟</p>
         </div>
       </div>
     </div>
@@ -243,17 +263,17 @@
     <div class="progress-ring-container">
       <svg class="progress-ring" viewBox="0 0 200 200">
         <circle class="ring-bg" cx="100" cy="100" r="85"/>
-        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="64"/>
+        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="85"/>
       </svg>
       <div class="progress-ring-text">
-        <span class="ring-percent">88%</span>
+        <span class="ring-percent">84%</span>
         <span class="ring-label">整体进度</span>
       </div>
     </div>
     <div class="progress-bars">
     <div class="progress-item">
       <div class="progress-header">
-        <span class="progress-name">环境搭建与项目初始化</span>
+        <span class="progress-name">第19周 · 环境搭建与项目初始化</span>
         <span class="progress-percent">100%</span>
       </div>
       <div class="progress-track">
@@ -262,7 +282,7 @@
     </div>
     <div class="progress-item">
       <div class="progress-header">
-        <span class="progress-name">NDK适配与后端搭建</span>
+        <span class="progress-name">第20周 · NDK适配与后端搭建</span>
         <span class="progress-percent">100%</span>
       </div>
       <div class="progress-track">
@@ -271,7 +291,7 @@
     </div>
     <div class="progress-item">
       <div class="progress-header">
-        <span class="progress-name">AGV导航APP开发与v1.0.0发布</span>
+        <span class="progress-name">第21周 · AGV导航v1.0与Windows迁移</span>
         <span class="progress-percent">100%</span>
       </div>
       <div class="progress-track">
@@ -280,20 +300,20 @@
     </div>
     <div class="progress-item">
       <div class="progress-header">
-        <span class="progress-name">实机联调与系统优化</span>
-        <span class="progress-percent">40%</span>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" style="width:40%"></div>
-      </div>
-    </div>
-    <div class="progress-item">
-      <div class="progress-header">
-        <span class="progress-name">Windows桌面版迁移</span>
+        <span class="progress-name">第22周 · 快直播与语音广播</span>
         <span class="progress-percent">100%</span>
       </div>
       <div class="progress-track">
         <div class="progress-fill" style="width:100%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">第23周 · 系统联调与优化</span>
+        <span class="progress-percent">20%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:20%"></div>
       </div>
     </div></div>
   </div>
@@ -354,76 +374,81 @@
   <div class="section-more"><a href="/weekly/" class="btn-more">查看全部周报 →</a></div>
 </section>
 
-<!-- 里程碑 -->
+<!-- 周完成情况 -->
 <section id="milestones" class="section">
-  <h2 class="section-title"><span class="title-icon">&#9716;</span>项目里程碑<span class="title-line"></span></h2>
+  <h2 class="section-title"><span class="title-icon">&#9716;</span>周完成情况<span class="title-line"></span></h2>
   <div class="timeline"><div class="timeline-line"></div>
     <div class="timeline-item left done">
       <div class="timeline-dot done"></div>
       <div class="timeline-card">
-        <span class="timeline-date">2026-05-06 ~ 05-10</span>
-        <h4>环境搭建与项目初始化</h4>
-        <p>阶段目标
-在 Ubuntu 22.04 上搭建 Android + Qt 开发环境，完成 HelloWorld 与 QtDemo 项目初始化。
-关键交付物
+        <span class="timeline-date">Sun May 10 2026 08:00:00 GMT+0800 (中国标准时间)</span>
+        <h4>第19周 · 环境搭建与项目初始化</h4>
+        <p>完成内容
 
-Android SDK + NDK r27...</p>
+Ubuntu 22.04 Android + Qt 开发环境搭建
+HelloWorld (Kotlin) 项目初始化
+QtDemo (Qt for Android) UI 组件验证
+Gra...</p>
         <span class="timeline-status done">已完成</span>
       </div>
     </div>
     <div class="timeline-item right done">
       <div class="timeline-dot done"></div>
       <div class="timeline-card">
-        <span class="timeline-date">2026-05-11 ~ 05-17</span>
-        <h4>NDK适配与后端搭建</h4>
-        <p>阶段目标
-完成 Qt NDK r27c 编译适配，搭建树莓派统一控制中心，开发云台APP基础功能，启动 AGV 导航 APP。
-关键交付物
+        <span class="timeline-date">Sun May 17 2026 08:00:00 GMT+0800 (中国标准时间)</span>
+        <h4>第20周 · NDK适配与后端搭建</h4>
+        <p>完成内容
 
-Qt 6.11→6.8.3 降级适配 + NDK r27c...</p>
+Qt 6.11→6.8.3 降级 + NDK r27c 编译通过
+Redmi A15 无障碍闪退修复
+树莓派统一控制中心 v3.0 (FastAPI :5003)
+GPIO + PELCO...</p>
         <span class="timeline-status done">已完成</span>
       </div>
     </div>
     <div class="timeline-item left done">
       <div class="timeline-dot done"></div>
       <div class="timeline-card">
-        <span class="timeline-date">2026-05-18 ~ 05-22</span>
-        <h4>AGV导航APP开发与v1.0.0发布</h4>
-        <p>阶段目标
-完成 AGV 导航 APP 全部功能开发并发布 v1.0.0，集成云端解析 API。
-关键交付物
+        <span class="timeline-date">Sun May 24 2026 08:00:00 GMT+0800 (中国标准时间)</span>
+        <h4>第21周 · AGV导航v1.0与Windows迁移</h4>
+        <p>完成内容
 
-AGVNav v1.0.0 APK (任务链/MJPEG/喊话/导航点/地图编辑器/摇杆)...</p>
+AGVNav v1.0 发布 (任务链/MJPEG/喊话/地图编辑/摇杆)
+Cyber UI 自研 QML 组件库 (9个)
+Windows 桌面版跨平台迁移
+API_DOC.md 完整文...</p>
         <span class="timeline-status done">已完成</span>
       </div>
     </div>
-    <div class="timeline-item right ">
+    <div class="timeline-item right done">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Sun May 31 2026 08:00:00 GMT+0800 (中国标准时间)</span>
+        <h4>第22周 · 快直播与语音广播</h4>
+        <p>完成内容
+
+腾讯快直播 USB 摄像头推流 (FFmpeg H.264 + WebRTC)
+低延迟参数优化 (5s→&lt;1s)
+树莓派语音广播系统 (WebSocket + ALSA)
+TK-mi...</p>
+        <span class="timeline-status done">已完成</span>
+      </div>
+    </div>
+    <div class="timeline-item left ">
       <div class="timeline-dot pulse"></div>
       <div class="timeline-card">
-        <span class="timeline-date">2026-05-23 ~ 进行中</span>
-        <h4>实机联调与系统优化</h4>
-        <p>阶段目标
-AGV 全链路联调 (Android+Windows+树莓派)，快直播推流集成，海康 PTZ 自动巡检，语音广播部署。
-关键交付物
+        <span class="timeline-date">Sun Jun 07 2026 08:00:00 GMT+0800 (中国标准时间)</span>
+        <h4>第23周 · 系统联调与优化</h4>
+        <p>本周任务
 
-三端联调测试（进行中）
-快直播推流与导航APP集成
-海康...</p>
+🔄 三端联调 (Android+Windows+树莓派)
+🔄 快直播推流与导航APP集成
+🔄 海康摄像头PTZ自动巡检
+🔄 底盘CAN驱动实机验证
+🔄 语音广播系统部署
+
+...</p>
         <span class="timeline-status active">进行中</span>
-      </div>
-    </div>
-    <div class="timeline-item left done">
-      <div class="timeline-dot done"></div>
-      <div class="timeline-card">
-        <span class="timeline-date">2026-05-18 ~ 05-22</span>
-        <h4>Windows桌面版迁移</h4>
-        <p>阶段目标
-将 AGVNav 从 Android 完整迁移至 Windows 桌面平台，保证全部功能跨平台兼容。
-关键交付物
-
-Windows 桌面版 AGVNav.exe (调试版 + 发布版)
-控件...</p>
-        <span class="timeline-status done">已完成</span>
       </div>
     </div></div>
 </section>

@@ -115,17 +115,22 @@ title: AGV 导航与机器人控制系统 - 首页
         <div class="arch-item android">
           <span class="arch-icon">&#128241;</span>
           <strong>Android 平板</strong>
-          <p>Qt 6.8 + QML<br/>AGVNav APK<br/>arm64-v8a</p>
+          <p>Qt 6.8 + QML<br/>AGVNav APK</p>
         </div>
         <div class="arch-item windows">
           <span class="arch-icon">&#128187;</span>
           <strong>Windows PC</strong>
-          <p>Qt 6.8 Desktop<br/>AGVNav.exe<br/>键鼠交互</p>
+          <p>Qt 6.8 Desktop<br/>AGVNav.exe</p>
+        </div>
+        <div class="arch-item windows">
+          <span class="arch-icon">&#127760;</span>
+          <strong>浏览器</strong>
+          <p>WebRTC 播放<br/>语音广播 SPA</p>
         </div>
       </div>
     </div>
 
-    <div class="arch-arrow">▼ HTTP / WebSocket ▼</div>
+    <div class="arch-arrow">▼ HTTP / WebSocket / RTMP ▼</div>
 
     <!-- 后端层 -->
     <div class="arch-layer">
@@ -134,55 +139,70 @@ title: AGV 导航与机器人控制系统 - 首页
         <div class="arch-item backend">
           <span class="arch-icon">&#9881;</span>
           <strong>FastAPI :5003</strong>
-          <p>Python 3<br/>uvicorn<br/>统一控制中心 v3.0</p>
+          <p>GPIO/PELCO-D<br/>音频/海康SDK</p>
         </div>
         <div class="arch-item backend">
           <span class="arch-icon">&#128225;</span>
-          <strong>C++ PTZ Server</strong>
-          <p>TCP :9988<br/>海康 SDK<br/>MJPEG :9990</p>
+          <strong>PTZ Server</strong>
+          <p>TCP :9988<br/>MJPEG :9990</p>
+        </div>
+        <div class="arch-item backend">
+          <span class="arch-icon">&#127909;</span>
+          <strong>快直播推流</strong>
+          <p>FFmpeg H.264<br/>RTMP→WebRTC</p>
+        </div>
+        <div class="arch-item backend">
+          <span class="arch-icon">&#128266;</span>
+          <strong>语音广播</strong>
+          <p>WebSocket PCM<br/>ALSA aplay</p>
         </div>
       </div>
     </div>
 
-    <div class="arch-arrow">▼ GPIO / RS-485 / TCP ▼</div>
+    <div class="arch-arrow">▼ GPIO / RS-485 / CAN / TCP ▼</div>
 
     <!-- 硬件层 -->
     <div class="arch-layer">
       <div class="arch-label">硬件</div>
       <div class="arch-items">
         <div class="arch-item hardware">
-          <span class="arch-icon">&#9889;</span>
-          <strong>GPIO</strong>
-          <p>引脚 22/27<br/>BCM 编号</p>
-        </div>
-        <div class="arch-item hardware">
           <span class="arch-icon">&#128247;</span>
           <strong>海康摄像头</strong>
-          <p>PTZ 云台<br/>SDK 控制</p>
+          <p>PTZ 云台</p>
         </div>
         <div class="arch-item hardware">
-          <span class="arch-icon">&#128266;</span>
-          <strong>USB 声卡</strong>
-          <p>PCM 音频<br/>ALSA 播放</p>
+          <span class="arch-icon">&#128295;</span>
+          <strong>TK-mid 底盘</strong>
+          <p>CAN 500Kbps</p>
         </div>
         <div class="arch-item hardware">
           <span class="arch-icon">&#9881;</span>
           <strong>PELCO-D 云台</strong>
-          <p>RS-485<br/>/dev/ttySC0</p>
+          <p>RS-485 串口</p>
+        </div>
+        <div class="arch-item hardware">
+          <span class="arch-icon">&#127908;</span>
+          <strong>USB 摄像头</strong>
+          <p>V4L2 采集</p>
         </div>
       </div>
     </div>
 
-    <div class="arch-arrow">▼ HTTP Trigger ▼</div>
+    <div class="arch-arrow">▼ HTTP Trigger / RTMP ▼</div>
 
     <!-- 云端层 -->
     <div class="arch-layer">
       <div class="arch-label">云端</div>
-      <div class="arch-items single">
+      <div class="arch-items">
         <div class="arch-item cloud">
           <span class="arch-icon">&#9729;</span>
           <strong>巡检服务器</strong>
-          <p>8.148.200.227 :9998<br/>图片解析 API<br/>巡检记录存储</p>
+          <p>:9998 图片解析</p>
+        </div>
+        <div class="arch-item cloud">
+          <span class="arch-icon">&#127909;</span>
+          <strong>腾讯快直播</strong>
+          <p>WebRTC CDN<br/><1s 延迟</p>
         </div>
       </div>
     </div>
@@ -214,9 +234,9 @@ title: AGV 导航与机器人控制系统 - 首页
   <div class="section-more"><a href="{{baseurl}}/weekly/" class="btn-more">查看全部周报 →</a></div>
 </section>
 
-<!-- 里程碑 -->
+<!-- 周完成情况 -->
 <section id="milestones" class="section">
-  <h2 class="section-title"><span class="title-icon">&#9716;</span>项目里程碑<span class="title-line"></span></h2>
+  <h2 class="section-title"><span class="title-icon">&#9716;</span>周完成情况<span class="title-line"></span></h2>
   <div class="timeline"><div class="timeline-line"></div>{{timelineItems}}</div>
 </section>
 
