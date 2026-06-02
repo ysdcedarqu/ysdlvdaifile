@@ -87,6 +87,39 @@ body {
 
 /* ============ 主体 ============ */
 .main-content { position: relative; z-index: 1; padding-top: 64px; }
+
+/* ============ 机构信息横幅 ============ */
+.org-banner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 1.25rem 2rem 0.75rem;
+    display: flex; align-items: center; gap: 1rem;
+}
+.org-name {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
+.org-divider {
+    color: var(--accent);
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+.org-dev {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+    .org-banner { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 1rem 1rem 0.5rem; }
+    .org-name { font-size: 1.2rem; }
+    .org-dev { font-size: 0.95rem; }
+    .org-divider { display: none; }
+}
 .section { max-width: 1280px; margin: 0 auto; padding: 6rem 2rem; }
 .section-title {
     font-family: 'Orbitron', monospace; font-size: 1.75rem; font-weight: 700;
