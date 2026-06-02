@@ -6,11 +6,19 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "mkdir -p dist/css dist/js && cp public/index.html dist/index.html && cp public/css/style.css dist/css/style.css && cp public/js/main.js dist/js/main.js"
+    "build": "node build.js",
+    "build:html": "node build.js"
   },
-  "keywords": ["inspection-vehicle", "crawler", "progress-report"],
+  "keywords": [
+    "inspection-vehicle",
+    "crawler",
+    "progress-report"
+  ],
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.4",
+    "sass": "^1.100.0"
   }
 }

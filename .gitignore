@@ -2,3 +2,6 @@ node_modules/
 .env
 .DS_Store
 *.log
+# 构建产物（本地生成，CI 中重新构建）
+_site/
+CSDN_Node.js构建详解与踩坑指南.md

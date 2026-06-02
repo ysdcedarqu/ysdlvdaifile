@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>履带式巡检车 - 项目进度汇报</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>项目进度总览 · 履带式巡检车 · 项目进度看板</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
+    <meta property="og:title" content="项目进度总览 · 履带式巡检车 · 项目进度看板">
+    <meta property="og:description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
 </head>
 <body>
-    <!-- 科技网格背景 -->
     <canvas id="bgCanvas"></canvas>
     <div class="scan-line"></div>
 
@@ -17,15 +22,19 @@
     <header class="header">
         <div class="header-inner">
             <div class="logo">
-                <span class="logo-icon">&#9881;</span>
-                <span class="logo-text">YSD<span class="accent">LAB</span></span>
+                <a href="/" class="logo-link">
+                    <span class="logo-icon">&#9881;</span>
+                    <span class="logo-text">YSD<span class="accent">LAB</span></span>
+                </a>
             </div>
+            <button class="nav-toggle" aria-label="菜单">&#9776;</button>
             <nav class="nav">
-                <a href="#overview" class="nav-link" data-section="overview">项目概览</a>
-                <a href="#progress" class="nav-link" data-section="progress">进度总览</a>
-                <a href="#milestones" class="nav-link" data-section="milestones">里程碑</a>
-                <a href="#tech" class="nav-link" data-section="tech">技术架构</a>
-                <a href="#team" class="nav-link" data-section="team">团队成员</a>
+                <a href="/" class="nav-link">首页</a>
+                <a href="/#progress" class="nav-link">进度</a>
+                <a href="/weekly/" class="nav-link">周报</a>
+                <a href="/#milestones" class="nav-link">里程碑</a>
+                <a href="/issues/" class="nav-link">问题追踪</a>
+                <a href="/#tech" class="nav-link">技术架构</a>
             </nav>
             <div class="header-status">
                 <span class="status-dot online"></span>
@@ -34,291 +43,423 @@
         </div>
     </header>
 
-    <!-- 主内容区 -->
     <main class="main-content">
+        
+<!-- Hero 区域 -->
+<section class="section hero-section">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        PROJECT IN PROGRESS
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line1">履带式巡检车</span>
+        <span class="title-line2">Crawler Inspection Vehicle</span>
+      </h1>
+      <p class="hero-desc">
+        基于履带式移动平台，搭载多传感器融合系统，实现复杂地形下的自主巡检与实时数据回传，
+        为工业场景提供智能化、无人化的巡检解决方案。
+      </p>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-value" data-count="45">0</span>
+          <span class="stat-unit">%</span>
+          <span class="stat-label">总体进度</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" data-count="2">0</span>
+          <span class="stat-label">进行中任务</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" data-count="2">0</span>
+          <span class="stat-label">已完成阶段</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="vehicle-hologram">
+        <div class="holo-ring ring1"></div>
+        <div class="holo-ring ring2"></div>
+        <div class="holo-ring ring3"></div>
+        <div class="holo-vehicle">
+          <svg viewBox="0 0 200 140" class="vehicle-svg">
+            <rect x="30" y="40" width="140" height="60" rx="8" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.8"/>
+            <rect x="50" y="20" width="80" height="25" rx="4" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="55" cy="105" r="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <circle cx="95" cy="105" r="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <circle cx="135" cy="105" r="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <line x1="35" y1="95" x2="165" y2="95" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+            <line x1="35" y1="115" x2="165" y2="115" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+            <rect x="85" y="10" width="10" height="12" rx="2" fill="var(--accent)" opacity="0.5"/>
+            <circle cx="90" cy="8" r="4" fill="var(--accent)" opacity="0.8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Hero 区域 -->
-        <section id="overview" class="section hero-section">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <div class="hero-badge">
-                        <span class="badge-pulse"></span>
-                        PROJECT IN PROGRESS
-                    </div>
-                    <h1 class="hero-title">
-                        <span class="title-line1">履带式巡检车</span>
-                        <span class="title-line2">Crawler Inspection Vehicle</span>
-                    </h1>
-                    <p class="hero-desc">
-                        基于履带式移动平台，搭载多传感器融合系统，实现复杂地形下的自主巡检与实时数据回传，
-                        为工业场景提供智能化、无人化的巡检解决方案。
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <span class="stat-value" data-count="65">0</span>
-                            <span class="stat-unit">%</span>
-                            <span class="stat-label">总体进度</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-value" data-count="12">0</span>
-                            <span class="stat-label">进行中任务</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-value" data-count="8">0</span>
-                            <span class="stat-label">已完成模块</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="vehicle-hologram">
-                        <div class="holo-ring ring1"></div>
-                        <div class="holo-ring ring2"></div>
-                        <div class="holo-ring ring3"></div>
-                        <div class="holo-vehicle">
-                            <!-- 履带车 SVG 占位 -->
-                            <svg viewBox="0 0 200 140" class="vehicle-svg">
-                                <rect x="30" y="40" width="140" height="60" rx="8" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.8"/>
-                                <rect x="50" y="20" width="80" height="25" rx="4" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
-                                <circle cx="55" cy="105" r="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
-                                <circle cx="95" cy="105" r="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
-                                <circle cx="135" cy="105" r="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
-                                <line x1="35" y1="95" x2="165" y2="95" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="35" y1="115" x2="165" y2="115" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
-                                <!-- 传感器模块 -->
-                                <rect x="85" y="10" width="10" height="12" rx="2" fill="var(--accent)" opacity="0.5"/>
-                                <circle cx="90" cy="8" r="4" fill="var(--accent)" opacity="0.8"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- 进度总览 -->
+<section id="progress" class="section">
+  <h2 class="section-title">
+    <span class="title-icon">&#9776;</span>
+    进度总览
+    <span class="title-line"></span>
+  </h2>
+  <div class="progress-grid">
+    <div class="progress-ring-container">
+      <svg class="progress-ring" viewBox="0 0 200 200">
+        <circle class="ring-bg" cx="100" cy="100" r="85"/>
+        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="294"/>
+      </svg>
+      <div class="progress-ring-text">
+        <span class="ring-percent">45%</span>
+        <span class="ring-label">整体进度</span>
+      </div>
+    </div>
+    <div class="progress-bars">
+      
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">项目启动阶段</span>
+        <span class="progress-percent">100%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:100%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">机械结构设计</span>
+        <span class="progress-percent">100%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:100%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">电控系统开发</span>
+        <span class="progress-percent">70%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:70%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">传感器集成与算法开发</span>
+        <span class="progress-percent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">系统联调与场地测试</span>
+        <span class="progress-percent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">项目验收与结题</span>
+        <span class="progress-percent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
 
-        <!-- 进度总览 -->
-        <section id="progress" class="section">
-            <h2 class="section-title">
-                <span class="title-icon">&#9776;</span>
-                进度总览
-                <span class="title-line"></span>
-            </h2>
-            <div class="progress-grid">
-                <!-- 整体进度环 -->
-                <div class="progress-ring-container">
-                    <svg class="progress-ring" viewBox="0 0 200 200">
-                        <circle class="ring-bg" cx="100" cy="100" r="85"/>
-                        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="187"/>
-                    </svg>
-                    <div class="progress-ring-text">
-                        <span class="ring-percent">65%</span>
-                        <span class="ring-label">整体进度</span>
-                    </div>
-                </div>
-                <!-- 各模块进度条 -->
-                <div class="progress-bars">
-                    <div class="progress-item">
-                        <div class="progress-header">
-                            <span class="progress-name">机械结构设计</span>
-                            <span class="progress-percent">80%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill" style="width:80%"></div>
-                        </div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header">
-                            <span class="progress-name">电控系统开发</span>
-                            <span class="progress-percent">60%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill" style="width:60%"></div>
-                        </div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header">
-                            <span class="progress-name">传感器集成</span>
-                            <span class="progress-percent">70%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill" style="width:70%"></div>
-                        </div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header">
-                            <span class="progress-name">软件平台搭建</span>
-                            <span class="progress-percent">50%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill" style="width:50%"></div>
-                        </div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header">
-                            <span class="progress-name">系统联调测试</span>
-                            <span class="progress-percent">30%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill" style="width:30%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- 最新周报 -->
+<section id="weekly" class="section">
+  <h2 class="section-title">
+    <span class="title-icon">&#9998;</span>
+    最新周报
+    <span class="title-line"></span>
+  </h2>
+  <div class="weekly-grid">
+    
+    <a href="/weekly/2026-04-12-week05.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 4 月 12 日</span>
+      <h3>第5周 · 传感器集成开始</h3>
+      <p>PCB焊接调试完成，开始激光雷达与深度相机驱动集成。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">50%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:50%"></div>
+        </div>
+      </div>
+    </a>
+    <a href="/weekly/2026-04-05-week04.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 4 月 5 日</span>
+      <h3>第4周 · 硬件PCB设计与打样</h3>
+      <p>完成主控板PCB设计并发厂打样，电机驱动调试中。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">70%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:70%"></div>
+        </div>
+      </div>
+    </a>
+    <a href="/weekly/2026-03-29-week03.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 3 月 29 日</span>
+      <h3>第3周 · 电控系统方案设计</h3>
+      <p>完成电控系统总体方案设计，确定主控芯片及通信架构。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">90%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:90%"></div>
+        </div>
+      </div>
+    </a>
+    <a href="/weekly/2026-03-22-week02.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 3 月 22 日</span>
+      <h3>第2周 · 机械方案设计启动</h3>
+      <p>完成履带底盘选型，启动车体3D建模。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">100%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:100%"></div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="section-more">
+    <a href="/weekly/" class="btn-more">查看全部周报 →</a>
+  </div>
+</section>
 
-        <!-- 里程碑时间线 -->
-        <section id="milestones" class="section">
-            <h2 class="section-title">
-                <span class="title-icon">&#9716;</span>
-                项目里程碑
-                <span class="title-line"></span>
-            </h2>
-            <div class="timeline">
-                <div class="timeline-line"></div>
-                <div class="timeline-item left done">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2026.03</span>
-                        <h4>项目立项 & 需求分析</h4>
-                        <p>完成市场调研与技术可行性分析，确定整车技术参数指标，组建项目团队。</p>
-                        <span class="timeline-status done">已完成</span>
-                    </div>
-                </div>
-                <div class="timeline-item right done">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2026.04</span>
-                        <h4>机械方案设计</h4>
-                        <p>完成履带底盘选型、车体结构3D建模、关键零部件强度校核与仿真分析。</p>
-                        <span class="timeline-status done">已完成</span>
-                    </div>
-                </div>
-                <div class="timeline-item left active">
-                    <div class="timeline-dot pulse"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2026.05</span>
-                        <h4>电控系统开发</h4>
-                        <p>基于STM32主控单元，完成电机驱动、电源管理、通信模块的硬件设计与底层驱动开发。</p>
-                        <span class="timeline-status active">进行中</span>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2026.06</span>
-                        <h4>传感器集成与算法开发</h4>
-                        <p>集成激光雷达、深度相机、IMU等传感器，开发SLAM定位与自主导航算法。</p>
-                        <span class="timeline-status pending">待开始</span>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2026.07</span>
-                        <h4>系统联调与场地测试</h4>
-                        <p>各子系统联合调试，在模拟工业场景中进行多地形巡检测试与性能评估。</p>
-                        <span class="timeline-status pending">待开始</span>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2026.08</span>
-                        <h4>项目验收与结题</h4>
-                        <p>完成项目总结报告，整理技术文档，进行最终成果演示与验收评审。</p>
-                        <span class="timeline-status pending">待开始</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- 里程碑时间线 -->
+<section id="milestones" class="section">
+  <h2 class="section-title">
+    <span class="title-icon">&#9716;</span>
+    项目里程碑
+    <span class="title-line"></span>
+  </h2>
+  <div class="timeline">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-item left done">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-03</span>
+        <h4>项目启动阶段</h4>
+        <p>阶段目标
+完成项目立项、需求调研、技术可行性分析。
+关键交付物
 
-        <!-- 技术架构 -->
-        <section id="tech" class="section">
-            <h2 class="section-title">
-                <span class="title-icon">&#9881;</span>
-                技术架构
-                <span class="title-line"></span>
-            </h2>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">&#9881;</div>
-                    <h4>机械平台</h4>
-                    <ul>
-                        <li>橡胶履带底盘</li>
-                        <li>独立悬挂系统</li>
-                        <li>IP65 防护等级</li>
-                        <li>最大爬坡 30°</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon">&#9889;</div>
-                    <h4>电控系统</h4>
-                    <ul>
-                        <li>STM32F4 主控</li>
-                        <li>无刷直流电机</li>
-                        <li>CAN 总线通信</li>
-                        <li>48V 锂电池组</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon">&#9741;</div>
-                    <h4>感知系统</h4>
-                    <ul>
-                        <li>16线激光雷达</li>
-                        <li>RGB-D 深度相机</li>
-                        <li>9轴 IMU 惯导</li>
-                        <li>红外热成像</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon">&#9729;</div>
-                    <h4>软件平台</h4>
-                    <ul>
-                        <li>ROS2 机器人框架</li>
-                        <li>Web 远程监控</li>
-                        <li>实时数据看板</li>
-                        <li>AI 缺陷检测</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+市场需求分析报告
+技术参数规格书
+项目计划书
+团队组建完成
 
-        <!-- 团队成员 -->
-        <section id="team" class="section">
-            <h2 class="section-title">
-                <span class="title-icon">&#9787;</span>
-                团队成员
-                <span class="title-line"></span>
-            </h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <span class="avatar-placeholder">Y</span>
-                    </div>
-                    <h4>项目负责人</h4>
-                    <p>待补充</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <span class="avatar-placeholder">M</span>
-                    </div>
-                    <h4>机械工程师</h4>
-                    <p>待补充</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <span class="avatar-placeholder">E</span>
-                    </div>
-                    <h4>电控工程师</h4>
-                    <p>待补充</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <span class="avatar-placeholder">S</span>
-                    </div>
-                    <h4>软件工程师</h4>
-                    <p>待补充</p>
-                </div>
-            </div>
-        </section>
+...</p>
+        <span class="timeline-status done">已完成</span>
+      </div>
+    </div>
+    <div class="timeline-item right done">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-04</span>
+        <h4>机械结构设计</h4>
+        <p>阶段目标
+完成履带底盘选型、车体结构设计、关键零部件校核。
+关键交付物
+
+履带底盘采购完成
+车体 3D 模型（SolidWorks）
+关键部件有限元分析报告
+零部件加工图纸
+
+...</p>
+        <span class="timeline-status done">已完成</span>
+      </div>
+    </div>
+    <div class="timeline-item left ">
+      <div class="timeline-dot pulse"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-05</span>
+        <h4>电控系统开发</h4>
+        <p>阶段目标
+基于 STM32 主控单元，完成电机驱动、电源管理、通信模块开发。
+关键交付物
+
+主控板 PCB 设计与打样
+电机驱动模块调试
+CAN 总线通信测试
+底层驱动框架
+IMU 传感器集成
+
+...</p>
+        <span class="timeline-status active">进行中</span>
+      </div>
+    </div>
+    <div class="timeline-item right ">
+      <div class="timeline-dot "></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-06</span>
+        <h4>传感器集成与算法开发</h4>
+        <p>阶段目标
+集成激光雷达、深度相机、IMU，开发 SLAM 定位与自主导航算法。
+关键交付物
+
+多传感器 ROS 驱动
+传感器时间同步方案
+SLAM 定位模块
+自主导航功能
+
+...</p>
+        <span class="timeline-status pending">待开始</span>
+      </div>
+    </div>
+    <div class="timeline-item left ">
+      <div class="timeline-dot "></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-07</span>
+        <h4>系统联调与场地测试</h4>
+        <p>阶段目标
+各子系统联合调试，在模拟工业场景中进行多地形巡检测试与性能评估。
+关键交付物
+
+系统联调测试报告
+多地形测试数据
+性能评估报告
+问题清单与改进方案
+
+...</p>
+        <span class="timeline-status pending">待开始</span>
+      </div>
+    </div>
+    <div class="timeline-item right ">
+      <div class="timeline-dot "></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-08</span>
+        <h4>项目验收与结题</h4>
+        <p>阶段目标
+完成项目总结报告，整理技术文档，进行最终成果演示与验收评审。
+关键交付物
+
+项目总结报告
+技术文档汇总
+成果演示视频
+验收评审材料
+
+...</p>
+        <span class="timeline-status pending">待开始</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 技术架构 -->
+<section id="tech" class="section">
+  <h2 class="section-title">
+    <span class="title-icon">&#9881;</span>
+    技术架构
+    <span class="title-line"></span>
+  </h2>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-icon">&#9881;</div>
+      <h4>机械平台</h4>
+      <ul>
+        <li>橡胶履带底盘</li>
+        <li>独立悬挂系统</li>
+        <li>IP65 防护等级</li>
+        <li>最大爬坡 30°</li>
+      </ul>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">&#9889;</div>
+      <h4>电控系统</h4>
+      <ul>
+        <li>STM32F4 主控</li>
+        <li>无刷直流电机</li>
+        <li>CAN 总线通信</li>
+        <li>48V 锂电池组</li>
+      </ul>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">&#9741;</div>
+      <h4>感知系统</h4>
+      <ul>
+        <li>16线激光雷达</li>
+        <li>RGB-D 深度相机</li>
+        <li>9轴 IMU 惯导</li>
+        <li>红外热成像</li>
+      </ul>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">&#9729;</div>
+      <h4>软件平台</h4>
+      <ul>
+        <li>ROS2 机器人框架</li>
+        <li>Web 远程监控</li>
+        <li>实时数据看板</li>
+        <li>AI 缺陷检测</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 问题追踪 -->
+<section id="issues" class="section">
+  <h2 class="section-title">
+    <span class="title-icon">&#9888;</span>
+    问题追踪
+    <span class="title-line"></span>
+  </h2>
+  <div class="issues-grid">
+    
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity high">高</span>
+        <span class="issue-status-badge open">未解决</span>
+      </div>
+      <h4>电机启动电流过大</h4>
+      <p>电控 · 2026 年 4 月 8 日</p>
+    </div>
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity medium">中</span>
+        <span class="issue-status-badge open">未解决</span>
+      </div>
+      <h4>PCB模拟地与数字地隔离不足</h4>
+      <p>硬件 · 2026 年 4 月 10 日</p>
+    </div>
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity medium">中</span>
+        <span class="issue-status-badge resolved">已解决</span>
+      </div>
+      <h4>激光雷达ROS驱动时间戳偏移</h4>
+      <p>软件 · 2026 年 4 月 15 日</p>
+    </div>
+    <div class="issue-card">
+      <div class="issue-header">
+        <span class="issue-severity high">高</span>
+        <span class="issue-status-badge resolved">已解决</span>
+      </div>
+      <h4>橡胶履带到货延迟</h4>
+      <p>供应链 · 2026 年 4 月 1 日</p>
+    </div>
+  </div>
+  <div class="section-more">
+    <a href="/issues/" class="btn-more">查看全部问题 →</a>
+  </div>
+</section>
 
     </main>
 
@@ -339,6 +480,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
