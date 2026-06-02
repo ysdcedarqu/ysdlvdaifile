@@ -69,7 +69,7 @@
       </p>
       <div class="hero-stats">
         <div class="stat-card">
-          <span class="stat-value" data-count="86">0</span>
+          <span class="stat-value" data-count="88">0</span>
           <span class="stat-unit">%</span>
           <span class="stat-label">总体进度</span>
         </div>
@@ -243,10 +243,10 @@
     <div class="progress-ring-container">
       <svg class="progress-ring" viewBox="0 0 200 200">
         <circle class="ring-bg" cx="100" cy="100" r="85"/>
-        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="75"/>
+        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="64"/>
       </svg>
       <div class="progress-ring-text">
-        <span class="ring-percent">86%</span>
+        <span class="ring-percent">88%</span>
         <span class="ring-label">整体进度</span>
       </div>
     </div>
@@ -281,10 +281,10 @@
     <div class="progress-item">
       <div class="progress-header">
         <span class="progress-name">实机联调与系统优化</span>
-        <span class="progress-percent">30%</span>
+        <span class="progress-percent">40%</span>
       </div>
       <div class="progress-track">
-        <div class="progress-fill" style="width:30%"></div>
+        <div class="progress-fill" style="width:40%"></div>
       </div>
     </div>
     <div class="progress-item">
@@ -303,6 +303,30 @@
 <section id="weekly" class="section">
   <h2 class="section-title"><span class="title-icon">&#9998;</span>最新周报<span class="title-line"></span></h2>
   <div class="weekly-grid">
+    <a href="/weekly/2026-06-07-week23.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 6 月 7 日</span>
+      <h3>第23周 · 系统联调与性能优化</h3>
+      <p>本周重点推进AGV导航系统全链路联调（Android+Windows+树莓派），快直播推流与导航APP集成，海康摄像头PTZ自动巡检功能开发，语音广播实机部署。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">20%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:20%"></div>
+        </div>
+      </div>
+    </a>
+    <a href="/weekly/2026-05-31-week10.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 5 月 31 日</span>
+      <h3>第23周 · 快直播推流、语音广播与CAN底盘驱动</h3>
+      <p>完成腾讯快直播 USB 摄像头低延迟推流（FFmpeg H.264 + WebRTC）、树莓派语音广播系统（浏览器-WebSocket-USB扬声器）、TK-mid 履带底盘 CAN 驱动发布 PyPI。重点：快直播全链路低延迟优化。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">100%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:100%"></div>
+        </div>
+      </div>
+    </a>
     <a href="/weekly/2026-05-31-week22.html" class="weekly-card">
       <span class="weekly-card-date">2026 年 5 月 31 日</span>
       <h3>第22周 · 快直播推流、语音广播与CAN底盘驱动</h3>
@@ -319,30 +343,6 @@
       <span class="weekly-card-date">2026 年 5 月 22 日</span>
       <h3>第21周 · AGV导航v1.0发布与Windows桌面版迁移</h3>
       <p>完成 AGV 导航 APP (AGVNav) v1.0.0 发布，包含任务链编辑/执行引擎、MJPEG 视频流、TTS 喊话、导航点管理、地图编辑器（四顶点弹窗+离线瓦片）、摇杆控制、Cyber 科技风 UI 组件库。</p>
-      
-      <div class="progress-mini">
-        <span class="progress-mini-label">100%</span>
-        <div class="progress-mini-track">
-          <div class="progress-mini-fill" style="width:100%"></div>
-        </div>
-      </div>
-    </a>
-    <a href="/weekly/2026-05-17-week20.html" class="weekly-card">
-      <span class="weekly-card-date">2026 年 5 月 17 日</span>
-      <h3>第20周 · NDK适配、树莓派控制中心与云台APP开发</h3>
-      <p>完成 Qt 6.11→6.8.3 降级与 NDK r27c 编译适配；搭建树莓派统一控制中心 v3.0 (FastAPI + GPIO + PELCO-D + 海康SDK)；云台APP 实现 Bearer 认证与 data:URI 建图；启动 AGV 导航 APP 基础架构。</p>
-      
-      <div class="progress-mini">
-        <span class="progress-mini-label">100%</span>
-        <div class="progress-mini-track">
-          <div class="progress-mini-fill" style="width:100%"></div>
-        </div>
-      </div>
-    </a>
-    <a href="/weekly/2026-05-10-week19.html" class="weekly-card">
-      <span class="weekly-card-date">2026 年 5 月 10 日</span>
-      <h3>第19周 · 安卓开发环境搭建与项目初始化</h3>
-      <p>五一假期后首周，在 Ubuntu 22.04 上搭建完整 Android + Qt 开发环境，创建 HelloWorld (Kotlin) 与 Qt for Android (canzhuo) 项目，配置 Gradle 国内镜像加速。</p>
       
       <div class="progress-mini">
         <span class="progress-mini-label">100%</span>
@@ -403,13 +403,12 @@ AGVNav v1.0.0 APK (任务链/MJPEG/喊话/导航点/地图编辑器/摇杆)...</
         <span class="timeline-date">2026-05-23 ~ 进行中</span>
         <h4>实机联调与系统优化</h4>
         <p>阶段目标
-AGV 导航 APP 实机场地联调测试，海康摄像头 PTZ 自动巡检，APK 性能优化。
+AGV 全链路联调 (Android+Windows+树莓派)，快直播推流集成，海康 PTZ 自动巡检，语音广播部署。
 关键交付物
 
-实机联调测试报告（进行中）
-海康摄像头预置位自动巡检功能
-APK 体积与内存优化
-多机...</p>
+三端联调测试（进行中）
+快直播推流与导航APP集成
+海康...</p>
         <span class="timeline-status active">进行中</span>
       </div>
     </div>
