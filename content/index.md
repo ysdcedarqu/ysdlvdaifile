@@ -66,22 +66,39 @@ title: AGV 导航与机器人控制系统 - 首页
     <a href="https://gitee.com/tydfgt/anzhuo" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#128241;</div>
       <h4>anzhuo</h4>
-      <p style="color:var(--text-secondary);font-size:0.85rem;">安卓客户端<br/>AGV导航 + 云台APP</p>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">Android AGV导航<br/>Qt6+QML 客户端</p>
     </a>
     <a href="https://gitee.com/tydfgt/windowsxunjianat" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#128187;</div>
       <h4>windowsxunjianat</h4>
-      <p style="color:var(--text-secondary);font-size:0.85rem;">Windows桌面版<br/>AGV导航巡检</p>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">Windows桌面版<br/>AGV导航巡检</p>
     </a>
     <a href="https://gitee.com/tydfgt/robothouduan" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#9881;</div>
       <h4>robothouduan</h4>
-      <p style="color:var(--text-secondary);font-size:0.85rem;">树莓派后端<br/>FastAPI + 海康SDK</p>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">树莓派后端<br/>FastAPI+海康SDK</p>
+    </a>
+    <a href="https://gitee.com/tydfgt/ysdyjld" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#128295;</div>
+      <h4>ysdyjld</h4>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">底盘CAN驱动<br/>TK-mid Python SDK</p>
+    </a>
+  </div>
+  <div class="tech-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1rem;">
+    <a href="https://gitee.com/tydfgt/yuanchengzhibotxy" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#127909;</div>
+      <h4>yuanchengzhibotxy</h4>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">快直播推流<br/>FFmpeg+WebRTC</p>
+    </a>
+    <a href="https://gitee.com/tydfgt/yuanchenghanhua" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#128266;</div>
+      <h4>yuanchenghanhua</h4>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">语音广播<br/>WebSocket+ALSA</p>
     </a>
     <a href="https://gitee.com/tydfgt/ysdlvdaifile" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#127760;</div>
       <h4>ysdlvdaifile</h4>
-      <p style="color:var(--text-secondary);font-size:0.85rem;">进度看板<br/>本页面</p>
+      <p style="color:var(--text-secondary);font-size:0.8rem;">进度看板<br/>本页面</p>
     </a>
   </div>
 </section>
