@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>激光雷达ROS驱动时间戳偏移 · 履带式巡检车 · 项目进度看板</title>
+    <title>Qt 6.11 与 NDK r27c 编译不兼容 · 履带式巡检车 · 项目进度看板</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <meta name="description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
-    <meta property="og:title" content="激光雷达ROS驱动时间戳偏移 · 履带式巡检车 · 项目进度看板">
+    <meta property="og:title" content="Qt 6.11 与 NDK r27c 编译不兼容 · 履带式巡检车 · 项目进度看板">
     <meta property="og:description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
@@ -49,24 +49,30 @@
     <article class="section post-detail">
       <a href="/issues/" class="post-back">← 返回问题列表</a>
       <header class="post-header">
-        <span class="post-date">2026 年 4 月 15 日</span>
-        <h1>激光雷达ROS驱动时间戳偏移</h1>
+        <span class="post-date">2026 年 5 月 11 日</span>
+        <h1>Qt 6.11 与 NDK r27c 编译不兼容</h1>
         <div class="post-meta">
-          <span>严重程度: <span class="issue-severity medium">中</span></span>
-          <span>分类: 软件</span>
+          <span>严重程度: <span class="issue-severity high">高</span></span>
+          <span>分类: 构建环境</span>
           <span>状态: <span class="issue-status-badge resolved">已解决</span></span>
         </div>
       </header>
       <div class="post-content">
         <h2>现象描述</h2>
-<p>激光雷达点云与 IMU 数据时间戳存在 ~50ms 偏移，影响 SLAM 精度。</p>
+<p>使用 Qt 6.11 + NDK r27c 编译 Android 项目时链接失败，<code>libc++_shared.so</code> 部分符号未定义。</p>
+<h2>影响范围</h2>
+<ul>
+<li>所有 Qt for Android 子项目无法编译通过</li>
+<li>阻塞整个安卓开发流程</li>
+</ul>
 <h2>解决方案</h2>
-<p>在 ROS 节点中增加硬件时钟同步机制，使用 PTP 协议对齐时间戳。</p>
+<p>降级至 Qt 6.8.3 LTS 版本，该版本经测试与 NDK r27c 完全兼容。<br>同时 JDK 从 11 升级至 OpenJDK 17（Qt 6.8 最低要求）。</p>
 <h2>进度</h2>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 问题定位</li>
-<li><input checked="" disabled="" type="checkbox"> PTP 时间同步实现</li>
-<li><input checked="" disabled="" type="checkbox"> 实机验证通过</li>
+<li><input checked="" disabled="" type="checkbox"> 问题定位（NDK ABI 符号缺失）</li>
+<li><input checked="" disabled="" type="checkbox"> Qt 6.8.3 安装与配置</li>
+<li><input checked="" disabled="" type="checkbox"> android_arm64_v8a 工具链验证</li>
+<li><input checked="" disabled="" type="checkbox"> 全部子项目编译通过</li>
 </ul>
 
       </div>

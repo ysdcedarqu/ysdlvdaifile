@@ -306,6 +306,11 @@ function renderPost(post, data) {
       <header class="post-header">
         <span class="post-date">${formatDate(post.date, 'ymd')}</span>
         <h1>${post.title}</h1>
+        <div class="post-org">
+          <span class="org-name">粤水电智能制造研究院</span>
+          <span class="org-divider">|</span>
+          <span class="org-dev">研发人员：屈雪松</span>
+        </div>
         <div class="post-meta">
           <span>进度: ${post.progress || 0}%</span>
           <span>状态: ${statusBadge(post.status || '')}</span>

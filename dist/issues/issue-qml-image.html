@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>电机启动电流过大 · 履带式巡检车 · 项目进度看板</title>
+    <title>QML Image 无法显示建图图片 (Android file:// 限制) · 履带式巡检车 · 项目进度看板</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <meta name="description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
-    <meta property="og:title" content="电机启动电流过大 · 履带式巡检车 · 项目进度看板">
+    <meta property="og:title" content="QML Image 无法显示建图图片 (Android file:// 限制) · 履带式巡检车 · 项目进度看板">
     <meta property="og:description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
@@ -49,29 +49,33 @@
     <article class="section post-detail">
       <a href="/issues/" class="post-back">← 返回问题列表</a>
       <header class="post-header">
-        <span class="post-date">2026 年 4 月 8 日</span>
-        <h1>电机启动电流过大</h1>
+        <span class="post-date">2026 年 5 月 14 日</span>
+        <h1>QML Image 无法显示建图图片 (Android file:// 限制)</h1>
         <div class="post-meta">
-          <span>严重程度: <span class="issue-severity high">高</span></span>
-          <span>分类: 电控</span>
-          <span>状态: <span class="issue-status-badge open">未解决</span></span>
+          <span>严重程度: <span class="issue-severity medium">中</span></span>
+          <span>分类: Qt/QML</span>
+          <span>状态: <span class="issue-status-badge resolved">已解决</span></span>
         </div>
       </header>
       <div class="post-content">
         <h2>现象描述</h2>
-<p>无刷直流电机在直接启动时电流峰值达到额定电流的 3 倍，触发过流保护。</p>
-<h2>影响范围</h2>
-<ul>
-<li>影响电机驱动稳定性</li>
-<li>可能导致电池保护板触发</li>
-</ul>
+<p>服务端返回建图 PNG 图片后，客户端写入本地文件再用 <code>file://</code> URL 传给 QML <code>Image</code> 组件，<br>图片无法显示，无任何报错。</p>
+<h2>根因分析</h2>
+<p>Android 沙箱安全策略：应用私有目录中的文件无法通过 <code>file://</code> 协议被 QML 引擎访问。<br><code>QQmlFileSelector</code> 在 Android 上对本地文件协议有额外限制。</p>
 <h2>解决方案</h2>
-<p>计划在 PWM 驱动中加入软启动斜坡函数，逐步增加占空比。</p>
+<p>不写文件，直接将 PNG 数据进行 Base64 编码，构造 data:URI 传给 QML：</p>
+<pre><code class="language-cpp">QString b64 = jsonObj[&quot;data&quot;].toString();
+m_mapImageUrl = &quot;data:image/png;base64,&quot; + b64;
+</code></pre>
+<pre><code class="language-qml">Image { source: robotAPI.mapImageUrl }  // 直接渲染
+</code></pre>
+<p>优势：无需文件 I/O、无需存储权限、加载更快。</p>
 <h2>进度</h2>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 问题定位</li>
-<li><input disabled="" type="checkbox"> 软启动算法实现</li>
-<li><input disabled="" type="checkbox"> 实机验证</li>
+<li><input checked="" disabled="" type="checkbox"> 问题定位 (查阅 Qt Android 文档)</li>
+<li><input checked="" disabled="" type="checkbox"> Base64 data:URI 方案实现</li>
+<li><input checked="" disabled="" type="checkbox"> 云台APP + 导航APP 双端验证</li>
+<li><input checked="" disabled="" type="checkbox"> <code>API_DOC.md</code> 补充图片传输说明</li>
 </ul>
 
       </div>

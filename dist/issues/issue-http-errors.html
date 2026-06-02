@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第1周 · 项目启动与需求分析 · 履带式巡检车 · 项目进度看板</title>
+    <title>HTTP API 调用 400/401/405 错误排查 · 履带式巡检车 · 项目进度看板</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <meta name="description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
-    <meta property="og:title" content="第1周 · 项目启动与需求分析 · 履带式巡检车 · 项目进度看板">
+    <meta property="og:title" content="HTTP API 调用 400/401/405 错误排查 · 履带式巡检车 · 项目进度看板">
     <meta property="og:description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
@@ -47,58 +47,60 @@
         </div>
         
     <article class="section post-detail">
-      <a href="/weekly/" class="post-back">← 返回周报列表</a>
+      <a href="/issues/" class="post-back">← 返回问题列表</a>
       <header class="post-header">
-        <span class="post-date">2026 年 3 月 15 日</span>
-        <h1>第1周 · 项目启动与需求分析</h1>
+        <span class="post-date">2026 年 5 月 13 日</span>
+        <h1>HTTP API 调用 400/401/405 错误排查</h1>
         <div class="post-meta">
-          <span>进度: 100%</span>
-          <span>状态: <span class="timeline-status done">completed</span></span>
+          <span>严重程度: <span class="issue-severity medium">中</span></span>
+          <span>分类: 后端联调</span>
+          <span>状态: <span class="issue-status-badge resolved">已解决</span></span>
         </div>
       </header>
       <div class="post-content">
-        <h2>本周进展</h2>
+        <h2>现象描述</h2>
+<p>AGV 导航 APP 调用机器人 HTTP API 时出现多种 HTTP 错误：</p>
 <ul>
-<li>✅ 完成市场调研报告，明确巡检车应用场景</li>
-<li>✅ 确定整车技术参数：载重 50kg、续航 4h、爬坡 30°</li>
-<li>✅ 完成传感器选型初步方案</li>
-<li>✅ 组建项目团队，明确分工</li>
+<li>400 Bad Request</li>
+<li>401 Unauthorized  </li>
+<li>405 Method Not Allowed</li>
 </ul>
-<h2>关键指标</h2>
+<h2>根因分析</h2>
 <table>
 <thead>
 <tr>
-<th>指标</th>
-<th>目标值</th>
-<th>当前状态</th>
+<th>错误码</th>
+<th>根因</th>
+<th>发现方法</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>最大载重</td>
-<td>50kg</td>
-<td>已确定</td>
+<td>400</td>
+<td>POST 空 body 但误设了 <code>Content-Type: application/json</code></td>
+<td><code>curl -v</code> 对比有无 Content-Type</td>
 </tr>
 <tr>
-<td>续航时间</td>
-<td>4h</td>
-<td>已确定</td>
+<td>401</td>
+<td><code>Authorization: {token}</code> 缺少 <code>Bearer </code> 前缀</td>
+<td>curl 逐格式测试</td>
 </tr>
 <tr>
-<td>防护等级</td>
-<td>IP65</td>
-<td>已确定</td>
-</tr>
-<tr>
-<td>通信距离</td>
-<td>500m</td>
-<td>已确定</td>
+<td>405</td>
+<td><code>async_stop_scan_map</code> 用 POST 调用，实际接口只接受 GET</td>
+<td><code>curl -X GET</code> vs <code>-X POST</code></td>
 </tr>
 </tbody></table>
-<h2>下周计划</h2>
+<h2>解决方案</h2>
+<ol>
+<li>GET 请求和空 body POST 不设置 Content-Type 头</li>
+<li>统一使用 <code>Authorization: Bearer {token}</code> 格式</li>
+<li>建立 curl 先行验证流程：PC 端逐一测试 → 确认 HTTP 方法和返回格式 → 再写 C++ 代码</li>
+</ol>
+<h2>进度</h2>
 <ul>
-<li>开始履带底盘选型与采购</li>
-<li>完成车体结构概念设计</li>
-<li>搭建开发环境</li>
+<li><input checked="" disabled="" type="checkbox"> 全部 API 端点 curl 验证</li>
+<li><input checked="" disabled="" type="checkbox"> Qt C++ 侧修复 (QNetworkRequest Header 修正)</li>
+<li><input checked="" disabled="" type="checkbox"> <code>API_DOC.md</code> 标注每个端点正确 HTTP 方法</li>
 </ul>
 
       </div>

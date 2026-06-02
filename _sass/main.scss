@@ -120,6 +120,27 @@ body {
     .org-dev { font-size: 0.95rem; }
     .org-divider { display: none; }
 }
+
+/* 文章内机构信息 */
+.post-org {
+    margin: 0.75rem 0 0.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+}
+.post-org .org-name {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+}
+.post-org .org-divider {
+    color: var(--accent);
+    opacity: 0.4;
+}
+.post-org .org-dev {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+}
 .section { max-width: 1280px; margin: 0 auto; padding: 6rem 2rem; }
 .section-title {
     font-family: 'Orbitron', monospace; font-size: 1.75rem; font-weight: 700;

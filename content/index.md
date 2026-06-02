@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 履带式巡检车项目 - 首页
+title: AGV 导航与机器人控制系统 - 首页
 ---
 
 <!-- Hero 区域 -->
@@ -12,12 +12,13 @@ title: 履带式巡检车项目 - 首页
         PROJECT IN PROGRESS
       </div>
       <h1 class="hero-title">
-        <span class="title-line1">履带式巡检车</span>
-        <span class="title-line2">Crawler Inspection Vehicle</span>
+        <span class="title-line1">AGV 导航与机器人控制系统</span>
+        <span class="title-line2">AGV Navigation & Robot Control System</span>
       </h1>
       <p class="hero-desc">
-        基于履带式移动平台，搭载多传感器融合系统，实现复杂地形下的自主巡检与实时数据回传，
-        为工业场景提供智能化、无人化的巡检解决方案。
+        基于 Qt 6.8 + Android + FastAPI 的机器人统一操控平台，
+        涵盖树莓派后端控制（GPIO/云台/音频/海康摄像头）、
+        Android 导航 APP（任务链/MJPEG/地图编辑）、云端巡检解析。
       </p>
       <div class="hero-stats">
         <div class="stat-card">
@@ -27,7 +28,7 @@ title: 履带式巡检车项目 - 首页
         </div>
         <div class="stat-card">
           <span class="stat-value" data-count="{{stats.activeIssues}}">0</span>
-          <span class="stat-label">进行中任务</span>
+          <span class="stat-label">已解决问题</span>
         </div>
         <div class="stat-card">
           <span class="stat-value" data-count="{{stats.completedPhases}}">0</span>
@@ -58,13 +59,31 @@ title: 履带式巡检车项目 - 首页
   </div>
 </section>
 
+<!-- 关联仓库 -->
+<section class="section">
+  <h2 class="section-title"><span class="title-icon">&#128451;</span>关联仓库<span class="title-line"></span></h2>
+  <div class="tech-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <a href="https://gitee.com/tydfgt/anzhuo" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#128241;</div>
+      <h4>anzhuo</h4>
+      <p style="color:var(--text-secondary);font-size:0.85rem;">安卓客户端<br/>AGV导航 + 云台APP</p>
+    </a>
+    <a href="https://gitee.com/tydfgt/robothouduan" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#9881;</div>
+      <h4>robothouduan</h4>
+      <p style="color:var(--text-secondary);font-size:0.85rem;">树莓派后端<br/>FastAPI + 海康SDK</p>
+    </a>
+    <a href="https://gitee.com/tydfgt/ysdlvdaifile" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#127760;</div>
+      <h4>ysdlvdaifile</h4>
+      <p style="color:var(--text-secondary);font-size:0.85rem;">进度看板<br/>本页面</p>
+    </a>
+  </div>
+</section>
+
 <!-- 进度总览 -->
 <section id="progress" class="section">
-  <h2 class="section-title">
-    <span class="title-icon">&#9776;</span>
-    进度总览
-    <span class="title-line"></span>
-  </h2>
+  <h2 class="section-title"><span class="title-icon">&#9776;</span>进度总览<span class="title-line"></span></h2>
   <div class="progress-grid">
     <div class="progress-ring-container">
       <svg class="progress-ring" viewBox="0 0 200 200">
@@ -76,102 +95,26 @@ title: 履带式巡检车项目 - 首页
         <span class="ring-label">整体进度</span>
       </div>
     </div>
-    <div class="progress-bars">
-      {{processBars}}
-    </div>
+    <div class="progress-bars">{{processBars}}</div>
   </div>
 </section>
 
 <!-- 最新周报 -->
 <section id="weekly" class="section">
-  <h2 class="section-title">
-    <span class="title-icon">&#9998;</span>
-    最新周报
-    <span class="title-line"></span>
-  </h2>
-  <div class="weekly-grid">
-    {{weeklyCards}}
-  </div>
-  <div class="section-more">
-    <a href="{{baseurl}}/weekly/" class="btn-more">查看全部周报 →</a>
-  </div>
+  <h2 class="section-title"><span class="title-icon">&#9998;</span>最新周报<span class="title-line"></span></h2>
+  <div class="weekly-grid">{{weeklyCards}}</div>
+  <div class="section-more"><a href="{{baseurl}}/weekly/" class="btn-more">查看全部周报 →</a></div>
 </section>
 
-<!-- 里程碑时间线 -->
+<!-- 里程碑 -->
 <section id="milestones" class="section">
-  <h2 class="section-title">
-    <span class="title-icon">&#9716;</span>
-    项目里程碑
-    <span class="title-line"></span>
-  </h2>
-  <div class="timeline">
-    <div class="timeline-line"></div>
-    {{timelineItems}}
-  </div>
-</section>
-
-<!-- 技术架构 -->
-<section id="tech" class="section">
-  <h2 class="section-title">
-    <span class="title-icon">&#9881;</span>
-    技术架构
-    <span class="title-line"></span>
-  </h2>
-  <div class="tech-grid">
-    <div class="tech-card">
-      <div class="tech-icon">&#9881;</div>
-      <h4>机械平台</h4>
-      <ul>
-        <li>橡胶履带底盘</li>
-        <li>独立悬挂系统</li>
-        <li>IP65 防护等级</li>
-        <li>最大爬坡 30°</li>
-      </ul>
-    </div>
-    <div class="tech-card">
-      <div class="tech-icon">&#9889;</div>
-      <h4>电控系统</h4>
-      <ul>
-        <li>STM32F4 主控</li>
-        <li>无刷直流电机</li>
-        <li>CAN 总线通信</li>
-        <li>48V 锂电池组</li>
-      </ul>
-    </div>
-    <div class="tech-card">
-      <div class="tech-icon">&#9741;</div>
-      <h4>感知系统</h4>
-      <ul>
-        <li>16线激光雷达</li>
-        <li>RGB-D 深度相机</li>
-        <li>9轴 IMU 惯导</li>
-        <li>红外热成像</li>
-      </ul>
-    </div>
-    <div class="tech-card">
-      <div class="tech-icon">&#9729;</div>
-      <h4>软件平台</h4>
-      <ul>
-        <li>ROS2 机器人框架</li>
-        <li>Web 远程监控</li>
-        <li>实时数据看板</li>
-        <li>AI 缺陷检测</li>
-      </ul>
-    </div>
-  </div>
+  <h2 class="section-title"><span class="title-icon">&#9716;</span>项目里程碑<span class="title-line"></span></h2>
+  <div class="timeline"><div class="timeline-line"></div>{{timelineItems}}</div>
 </section>
 
 <!-- 问题追踪 -->
 <section id="issues" class="section">
-  <h2 class="section-title">
-    <span class="title-icon">&#9888;</span>
-    问题追踪
-    <span class="title-line"></span>
-  </h2>
-  <div class="issues-grid">
-    {{issuesCards}}
-  </div>
-  <div class="section-more">
-    <a href="{{baseurl}}/issues/" class="btn-more">查看全部问题 →</a>
-  </div>
+  <h2 class="section-title"><span class="title-icon">&#9888;</span>问题追踪<span class="title-line"></span></h2>
+  <div class="issues-grid">{{issuesCards}}</div>
+  <div class="section-more"><a href="{{baseurl}}/issues/" class="btn-more">查看全部问题 →</a></div>
 </section>
