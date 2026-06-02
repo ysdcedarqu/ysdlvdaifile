@@ -220,10 +220,11 @@ function initProgressRing() {
 function initSmoothScroll() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             const sectionId = link.getAttribute('data-section');
+            if (!sectionId) return; // 非锚点链接(如 /weekly/)，正常跳转
             const section = document.getElementById(sectionId);
             if (section) {
+                e.preventDefault();
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });

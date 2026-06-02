@@ -264,7 +264,8 @@ body {
 .post-detail .post-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
 .post-detail .post-date { font-family: 'Orbitron', monospace; font-size: 0.8rem; letter-spacing: 2px; color: var(--accent); }
 .post-detail h1 { font-size: 2rem; margin: 0.5rem 0 1rem; }
-.post-detail .post-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.post-detail .post-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+.post-detail .post-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
 .post-detail .post-content { line-height: 1.9; }
 .post-detail .post-content h2 { font-size: 1.35rem; margin: 2rem 0 1rem; color: var(--accent); }
 .post-detail .post-content h3 { font-size: 1.1rem; margin: 1.5rem 0 0.75rem; }
