@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>导航APP v1.0.0 发布与地图编辑器开发 · 履带式巡检车 · 项目进度看板</title>
+    <title>AGV导航APP v1.0.0 发布：任务链+MJPEG+地图编辑器 · 履带式巡检车 · 项目进度看板</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <meta name="description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
-    <meta property="og:title" content="导航APP v1.0.0 发布与地图编辑器开发 · 履带式巡检车 · 项目进度看板">
+    <meta property="og:title" content="AGV导航APP v1.0.0 发布：任务链+MJPEG+地图编辑器 · 履带式巡检车 · 项目进度看板">
     <meta property="og:description" content="YSDLAB Crawler Inspection Vehicle Progress Report">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
@@ -45,7 +45,7 @@
       <a href="/weekly/" class="post-back">← 返回周报列表</a>
       <header class="post-header">
         <span class="post-date">2026 年 5 月 14 日</span>
-        <h1>导航APP v1.0.0 发布与地图编辑器开发</h1>
+        <h1>AGV导航APP v1.0.0 发布：任务链+MJPEG+地图编辑器</h1>
         <div class="post-meta">
           <span>进度: 100%</span>
           <span>状态: <span class="timeline-status done">completed</span></span>
@@ -53,66 +53,187 @@
       </header>
       <div class="post-content">
         <h2>本周进展</h2>
-<h3>导航 APP v1.0.0 (anzhuodaohang)</h3>
+<h3>AGV 导航 APP v1.0.0 正式发布 (anzhuodaohang/AGVNav)</h3>
+<p><strong>技术栈</strong>: Qt 6.8.3 + QML + C++ → Android (arm64-v8a)<br><strong>目标设备</strong>: 小米平板 (adb ID: <code>1c7d8049</code>)<br><strong>连接后端</strong>: 机器人 HTTP API (<code>192.168.1.102:8888</code>) + 树莓派控制中心 (<code>:5003</code>)</p>
+<hr>
+<h4>1. 任务链编辑与执行引擎</h4>
 <ul>
-<li>✅ <strong>任务链编辑与执行引擎</strong><ul>
-<li>支持多任务编排与顺序执行</li>
-<li>任务状态实时反馈</li>
+<li>✅ <strong>可视化任务链编辑器</strong><ul>
+<li>拖拽式任务编排 (QML <code>ListView</code> + <code>DragHandler</code>)</li>
+<li>支持任务类型: 导航、等待、拍照、喊话、IO 控制</li>
+<li>任务参数配置面板 (起点/终点/速度/超时)</li>
 </ul>
 </li>
-<li>✅ <strong>MJPEG 视频流集成</strong><ul>
-<li>实时视频画面显示</li>
-<li>低延迟视频传输</li>
+<li>✅ <strong>任务链执行引擎</strong><ul>
+<li>顺序执行 + 条件跳转</li>
+<li>实时状态反馈 (等待中 → 执行中 → 成功/失败)</li>
+<li>执行日志实时输出</li>
 </ul>
 </li>
-<li>✅ <strong>喊话功能</strong>（TTS 语音播报）</li>
-<li>✅ <strong>导航点管理系统</strong><ul>
-<li>导航点增删改查</li>
-<li>路径规划集成</li>
+</ul>
+<h4>2. MJPEG 视频流集成</h4>
+<ul>
+<li>✅ <strong>海康摄像头视频流接入</strong><ul>
+<li>连接树莓派 PTZ Server → 海康 SDK → MJPEG Stream (:9990)</li>
+<li>QML <code>AnimatedImage</code> 组件实时渲染</li>
+<li>视频延迟 &lt; 200ms (局域网)</li>
 </ul>
 </li>
-<li>🏷️ 发布 v1.0.0 正式标签</li>
+<li>✅ <strong>视频缓存优化</strong><ul>
+<li><code>Image { cache: false }</code> 禁用缓存保证实时性</li>
+<li>URL 时间戳强制刷新: <code>source: url + &quot;?t=&quot; + Date.now()</code></li>
 </ul>
-<h3>地图编辑器</h3>
+</li>
+</ul>
+<h4>3. TTS 喊话功能</h4>
 <ul>
-<li>✅ 四顶点弹窗绘制工具</li>
-<li>✅ 多地图源切换支持</li>
-<li>✅ 区域管理功能</li>
-<li>✅ QML 地图编辑器踩坑总结</li>
-<li>✅ 离线瓦片地图方案整理</li>
+<li>✅ Android TextToSpeech 引擎集成<ul>
+<li>支持中英文语音播报</li>
+<li>语速/音调可调</li>
+<li>预设喊话模板 (警告/提示/状态播报)</li>
 </ul>
-<h3>交互优化</h3>
+</li>
+</ul>
+<h4>4. 导航点管理系统</h4>
 <ul>
-<li>✅ 摇杆控制功能实现</li>
-<li>✅ 高频 API 调用优化</li>
-<li>✅ 速度实时显示</li>
+<li>✅ <strong>导航点 CRUD</strong><ul>
+<li>地图长按添加导航点</li>
+<li>导航点命名、排序、拖拽调整</li>
+<li>支持导入/导出 JSON 格式</li>
 </ul>
-<h2>技术沉淀</h2>
+</li>
+<li>✅ <strong>路径规划集成</strong><ul>
+<li>调用机器人 API <code>/yhs-robot/cmd/begin_map</code> 开始建图</li>
+<li><code>/yhs-robot/cmd/async_stop_scan_map</code> (GET!) 停止扫描</li>
+</ul>
+</li>
+</ul>
+<h4>5. 地图编辑器</h4>
+<ul>
+<li>✅ <strong>四顶点弹窗绘制工具</strong><ul>
+<li>在地图上点击四个顶点自动生成四边形区域</li>
+<li>实时预览半透明填充</li>
+<li>区域命名 + 颜色自定义</li>
+</ul>
+</li>
+<li>✅ <strong>多地图源切换</strong><ul>
+<li>OpenStreetMap (默认)</li>
+<li>离线瓦片地图 (本地 <code>file://</code> 协议)</li>
+<li><code>osm_providers.json</code> 配置多源</li>
+</ul>
+</li>
+<li>✅ <strong>QML Map 组件集成要点</strong><ul>
+<li><code>import QtLocation 6.8</code> + <code>import QtPositioning 6.8</code> (Qt6 路径变更)</li>
+<li><code>MapPolygon</code> 绘制区域、<code>MapCircle</code> 标记点</li>
+</ul>
+</li>
+</ul>
+<h4>6. 摇杆控制</h4>
+<ul>
+<li>✅ <strong>虚拟摇杆 (DPadButton)</strong><ul>
+<li>8 方向控制 (上下左右 + 对角)</li>
+<li>触摸力度感应速度调节</li>
+<li>长按连续发送、松开自动停止</li>
+</ul>
+</li>
+<li>✅ <strong>速度实时显示</strong><ul>
+<li>从机器人 API 轮询速度数据 (500ms 间隔)</li>
+<li>Cyber UI 仪表盘样式</li>
+</ul>
+</li>
+</ul>
+<h4>7. Cyber 科技风 UI</h4>
+<ul>
+<li>✅ 自研 QML 组件库:<ul>
+<li><code>CyberButton</code> — 霓虹发光按钮</li>
+<li><code>DPadButton</code> — 虚拟方向键</li>
+<li><code>DeviceStatus</code> — 设备状态面板</li>
+<li><code>InfoCard</code> — 信息卡片</li>
+<li><code>MapInfoCard</code> — 地图信息浮层</li>
+<li><code>MappingPage</code> — 建图页面</li>
+<li><code>RobotMap</code> — 机器人地图组件</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>API 调试踩坑 (5 大教训)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>现象</th>
+<th>根因</th>
+<th>发现方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>HTTP 400</td>
+<td>空 body 误设 <code>Content-Type: application/json</code></td>
+<td><code>curl -v</code> 对比</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HTTP 401</td>
+<td><code>Authorization: {token}</code> 缺少 <code>Bearer </code> 前缀</td>
+<td>curl 逐格式测试</td>
+</tr>
+<tr>
+<td>3</td>
+<td>HTTP 405</td>
+<td><code>async_stop_scan_map</code> 用 POST 实际要 GET</td>
+<td><code>curl -X GET</code> vs <code>-X POST</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>图片不显示</td>
+<td><code>file://</code> URL Android 沙箱不可用</td>
+<td>查看 Qt Android 文档</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Release 日志丢失</td>
+<td><code>qDebug()</code> 被 <code>-DQT_NO_DEBUG</code> 移除</td>
+<td>改用 <code>qWarning()</code></td>
+</tr>
+</tbody></table>
+<p><strong>核心原则</strong>: 永远先用 <code>curl</code> 在 PC 上验证 API，再写 C++ 代码！</p>
+<hr>
+<h3>技术文档沉淀</h3>
 <table>
 <thead>
 <tr>
 <th>文档</th>
-<th>内容</th>
+<th>内容要点</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>AI 协作编程经验总结</td>
-<td>AI 辅助开发的实践心得</td>
+<td><code>API_DOC.md</code></td>
+<td>树莓派统一控制中心 v3.0.0 完整 API 文档 (40+ 端点)</td>
 </tr>
 <tr>
-<td>QML 地图编辑器踩坑</td>
-<td>离线瓦片 + 地图 API 集成</td>
+<td><code>AI编程经验总结.md</code></td>
+<td>Qt5→Qt6 迁移、API 调试方法、Android 特定问题、防御性编程</td>
 </tr>
 <tr>
-<td>摇杆控制经验总结</td>
-<td>摇杆控制 + 高频 API + 速度显示</td>
+<td><code>Android模拟器安装教程.md</code></td>
+<td>AVD 创建、Google APIs 镜像、adb 连接</td>
 </tr>
 </tbody></table>
+<h3>编译部署一键命令</h3>
+<pre><code class="language-bash">cd /home/cedar/anzhuo/anzhuodaohang &amp;&amp; \
+qmake6 -qtconf android_arm64_v8a/bin/target_qt.conf -spec android-clang &amp;&amp; \
+make -j$(nproc) &amp;&amp; \
+adb -s 1c7d8049 install -r android-build/AGVNav.apk
+</code></pre>
+<hr>
+<h3>🏷️ 发布 v1.0.0 标签</h3>
+<p>功能清单: 任务链编辑/执行 + MJPEG视频 + TTS喊话 + 导航点管理 + 地图编辑器 + 摇杆控制 + Cyber UI</p>
 <h2>下周计划</h2>
 <ul>
-<li>导航 APP 实机场地测试</li>
-<li>云台APP 与导航APP 联调</li>
-<li>性能优化与 Bug 修复</li>
+<li>AGV 导航 APP 实机场地联调测试</li>
+<li>海康摄像头 PTZ 预置位巡检功能</li>
+<li>性能优化 (APK 体积、视频延迟、内存占用)</li>
 </ul>
 
       </div>

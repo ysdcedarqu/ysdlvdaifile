@@ -53,29 +53,57 @@
       </header>
       <div class="post-content">
         <h2>本周进展</h2>
+<h3>环境搭建 (Ubuntu 22.04 + VS Code)</h3>
 <ul>
-<li>✅ 在 Ubuntu 22.04 上搭建完整安卓开发环境<ul>
-<li>Android SDK 安装与配置</li>
-<li>中国大陆网络加速方案（镜像配置）</li>
-<li>Gradle 阿里云镜像加速</li>
-<li>KVM 虚拟化配置</li>
-<li>VS Code 开发环境搭建</li>
+<li>✅ <strong>Android SDK 完整安装与配置</strong><ul>
+<li>下载并安装 Android SDK (API 21+)</li>
+<li>配置 <code>ANDROID_HOME</code>、<code>ANDROID_SDK_ROOT</code> 环境变量</li>
+<li>安装 platform-tools (adb, fastboot)</li>
 </ul>
 </li>
-<li>✅ 创建 HelloWorld Android Kotlin 项目<ul>
-<li>最低 SDK: API 21+</li>
-<li>构建工具: Gradle 9.4.0</li>
-<li>包含基础 MainActivity 示例</li>
+<li>✅ <strong>中国大陆网络加速方案</strong><ul>
+<li>Android SDK Manager 镜像配置 (东软/中科大)</li>
+<li>Gradle 阿里云镜像加速 (<code>services.gradle.org</code> → <code>mirrors.aliyun.com</code>)</li>
+<li>Maven Central 国内镜像 (华为云/阿里云)</li>
 </ul>
 </li>
-<li>✅ 初始化 Qt for Android 项目 (canzhuo)<ul>
-<li>基于 Qt 6.x 框架</li>
-<li>包含多种 UI 组件调用示例</li>
-<li>配置 Android 构建套件</li>
+<li>✅ <strong>KVM 虚拟化配置</strong><ul>
+<li>BIOS 开启 VT-x/AMD-V</li>
+<li>安装 <code>qemu-kvm</code>、<code>libvirt-daemon</code></li>
+<li>AVD 模拟器硬件加速验证</li>
 </ul>
 </li>
+<li>✅ <strong>VS Code 开发环境搭建</strong><ul>
+<li>Kotlin 语言支持 (Kotlin Language Server)</li>
+<li>Gradle 构建集成、adb 调试集成</li>
 </ul>
-<h2>技术要点</h2>
+</li>
+<li>✅ 编写 <code>ubuntu-vscode-android-setup.md</code> 环境搭建指南</li>
+</ul>
+<h3>HelloWorld (Android Kotlin)</h3>
+<ul>
+<li>✅ 初始化 Android Kotlin 项目<ul>
+<li>最低 SDK: API 21, 目标 SDK: API 35</li>
+<li>构建工具: Gradle 9.4.0 + AGP 8.9.0</li>
+</ul>
+</li>
+<li>✅ 编写基础 <code>MainActivity.kt</code> (Jetpack Compose UI)</li>
+</ul>
+<h3>Qt for Android 项目 (canzhuo)</h3>
+<ul>
+<li>✅ 基于 Qt 6.x 框架初始化 Android 项目<ul>
+<li><code>QtDemo.pro</code> / <code>main.cpp</code> / <code>mainwindow.*</code> / <code>subwindow.*</code></li>
+</ul>
+</li>
+<li>✅ 实现多种 UI 组件调用: MessageBox、InputDialog、ColorDialog、FontDialog</li>
+<li>✅ 配置 Android 构建套件 (arm64-v8a), Qt6Android.jar 库集成</li>
+</ul>
+<h3>基础设施</h3>
+<ul>
+<li>✅ Git 仓库初始化 + <code>上传到gitee.md</code> 操作指南</li>
+<li>✅ 创建 <code>raqtapitest</code> API 测试目录</li>
+</ul>
+<h2>技术配置总览</h2>
 <table>
 <thead>
 <tr>
@@ -85,11 +113,15 @@
 </thead>
 <tbody><tr>
 <td>操作系统</td>
-<td>Ubuntu 22.04</td>
+<td>Ubuntu 22.04 LTS</td>
 </tr>
 <tr>
 <td>Android SDK</td>
-<td>API 21+</td>
+<td>API 21 ~ 35</td>
+</tr>
+<tr>
+<td>NDK</td>
+<td>r27c</td>
 </tr>
 <tr>
 <td>Gradle</td>
@@ -97,28 +129,18 @@
 </tr>
 <tr>
 <td>Qt</td>
-<td>6.x</td>
+<td>6.8.3</td>
 </tr>
 <tr>
 <td>JDK</td>
-<td>11+</td>
-</tr>
-<tr>
-<td>开发工具</td>
-<td>VS Code / Qt Creator</td>
+<td>OpenJDK 17</td>
 </tr>
 </tbody></table>
-<h2>经验总结</h2>
-<ul>
-<li>整理了 <code>ubuntu-vscode-android-setup.md</code> 环境搭建指南</li>
-<li>Gradle 国内镜像加速可大幅提升构建速度</li>
-<li>Qt for Android 需要完整配置 NDK + SDK 路径</li>
-</ul>
 <h2>下周计划</h2>
 <ul>
 <li>探索 Qt Android NDK r27c 适配方案</li>
-<li>开始云台APP基础功能开发</li>
-<li>调研无障碍服务在 Android 15 上的兼容性</li>
+<li>启动云台APP (ysd_yuntaifb) 基础框架开发</li>
+<li>调研树莓派统一控制中心架构设计</li>
 </ul>
 
       </div>
