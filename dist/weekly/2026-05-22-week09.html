@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第22周 · Windows桌面版迁移与云端API集成 · AGV 导航与机器人控制系统 · 进度看板</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="AGV Navigation &amp; Robot Control System - YSDLAB">
+    <meta property="og:title" content="第22周 · Windows桌面版迁移与云端API集成 · AGV 导航与机器人控制系统 · 进度看板">
+    <meta property="og:description" content="AGV Navigation &amp; Robot Control System - YSDLAB">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+    <div class="scan-line"></div>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <span class="logo-icon">&#9881;</span>
+                    <span class="logo-text">YSD<span class="accent">LAB</span></span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="菜单">&#9776;</button>
+            <nav class="nav">
+                <a href="/" class="nav-link">首页</a>
+                <a href="/weekly/" class="nav-link">周报</a>
+                <a href="/issues/" class="nav-link">问题追踪</a>
+            </nav>
+            <div class="header-status">
+                <span class="status-dot online"></span>
+                <span class="status-text">SYSTEM ONLINE</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="org-banner">
+            <span class="org-name">粤水电智能制造研究院</span>
+            <span class="org-divider">|</span>
+            <span class="org-dev">研发人员：屈雪松</span>
+        </div>
+        
+    <article class="section post-detail">
+      <a href="/weekly/" class="post-back">← 返回周报列表</a>
+      <header class="post-header">
+        <span class="post-date">2026 年 5 月 22 日</span>
+        <h1>第22周 · Windows桌面版迁移与云端API集成</h1>
+        <div class="post-org">
+          <span class="org-name">粤水电智能制造研究院</span>
+          <span class="org-divider">|</span>
+          <span class="org-dev">研发人员：屈雪松</span>
+        </div>
+        <div class="post-meta">
+          <span>进度: 100%</span>
+          <span>状态: <span class="timeline-status done">completed</span></span>
+        </div>
+      </header>
+      <div class="post-content">
+        <h2>本周进展</h2>
+<h3>Windows 桌面版迁移 (windowsxunjianat)</h3>
+<p>将 AGVNav 从 Android (arm64-v8a) 完整迁移至 Windows 桌面平台：</p>
+<ul>
+<li>✅ <strong>Qt 桌面编译环境配置</strong><ul>
+<li>切换构建套件: <code>android_arm64_v8a</code> → <code>gcc_64</code> (Desktop)</li>
+<li>qmake 命令: <code>qmake6 AGVNav.pro</code> (无需 <code>-spec android-clang</code>)</li>
+<li>移除 Android 特定依赖 (Qt6Android.jar, AndroidManifest.xml)</li>
+</ul>
+</li>
+<li>✅ <strong>UI 自适应适配</strong><ul>
+<li>Android 触摸控件 → Windows 鼠标/键盘交互</li>
+<li>窗口尺寸自适应 (平板竖屏 → PC 横屏)</li>
+<li>高 DPI 显示器适配 (Qt <code>AA_EnableHighDpiScaling</code>)</li>
+</ul>
+</li>
+<li>✅ <strong>网络层跨平台兼容</strong><ul>
+<li><code>QNetworkAccessManager</code> 代码零改动 (Qt 跨平台抽象)</li>
+<li>HTTP API 调用全部兼容</li>
+<li>MJPEG 视频流 Windows 端渲染验证</li>
+</ul>
+</li>
+<li>✅ <strong>功能完整性验证</strong><ul>
+<li>任务链编辑器 ✅</li>
+<li>地图编辑器 (OSM + 离线瓦片) ✅</li>
+<li>摇杆控制 (键盘 WASD 替代触摸) ✅</li>
+<li>MJPEG 视频显示 ✅</li>
+<li>TTS 喊话 (Windows SAPI 替代 Android TTS) ✅</li>
+</ul>
+</li>
+<li>✅ <strong>Windows 版项目交接文档</strong><ul>
+<li><code>Windows版项目交接文档.md</code> — 完整部署与使用说明</li>
+<li><code>Windows迁移准备清单.md</code> — 环境依赖与配置步骤</li>
+</ul>
+</li>
+</ul>
+<h3>树莓派后端云端集成 (robothouduan)</h3>
+<ul>
+<li>✅ <strong>云端巡检解析 API 接入</strong><ul>
+<li>巡检服务器: <code>8.148.200.227:9998/trigger</code></li>
+<li>巡检流程: 拍照 → 上传云端 → 触发解析 → 返回结果</li>
+<li>API 端点: <code>POST /api/camera/scan/arrive?point=xx</code> 一键巡检</li>
+<li>上传记录: <code>GET /api/camera/scan/history</code></li>
+</ul>
+</li>
+<li>✅ <strong>端口转发自动恢复</strong> (start.sh)<ul>
+<li>iptables NAT 规则持久化</li>
+<li>systemd 开机自启服务</li>
+</ul>
+</li>
+</ul>
+<h3>项目文档完善</h3>
+<ul>
+<li>✅ <code>API_DOC.md</code> 补充云端 API 章节</li>
+<li>✅ <code>Windows版项目交接文档.md</code> 编写</li>
+<li>✅ <code>Windows迁移准备清单.md</code> 整理</li>
+</ul>
+<h2>技术要点</h2>
+<table>
+<thead>
+<tr>
+<th>平台差异</th>
+<th>Android</th>
+<th>Windows Desktop</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>构建工具链</td>
+<td>android-clang + NDK r27c</td>
+<td>gcc_64 (MinGW/MSVC)</td>
+</tr>
+<tr>
+<td>安装方式</td>
+<td>adb install APK</td>
+<td>直接运行 .exe</td>
+</tr>
+<tr>
+<td>触摸交互</td>
+<td>QML TouchHandler</td>
+<td>MouseArea + 键盘</td>
+</tr>
+<tr>
+<td>TTS 引擎</td>
+<td>Android TextToSpeech</td>
+<td>Windows SAPI</td>
+</tr>
+<tr>
+<td>文件访问</td>
+<td>沙箱限制</td>
+<td>无限制</td>
+</tr>
+<tr>
+<td>高 DPI</td>
+<td>自动缩放</td>
+<td>AA_EnableHighDpiScaling</td>
+</tr>
+</tbody></table>
+<h2>下周计划</h2>
+<ul>
+<li>AGV 导航系统实机联调 (Android + Windows + 树莓派)</li>
+<li>海康摄像头 PTZ 预置位自动巡检</li>
+<li>性能优化与稳定性测试</li>
+</ul>
+
+      </div>
+    </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left"><span>YSDLAB © 2026</span></div>
+            <div class="footer-right">
+                <span class="footer-tag">#CrawlerRobot</span>
+                <span class="footer-tag">#InspectionVehicle</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

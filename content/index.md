@@ -62,11 +62,16 @@ title: AGV 导航与机器人控制系统 - 首页
 <!-- 关联仓库 -->
 <section class="section">
   <h2 class="section-title"><span class="title-icon">&#128451;</span>关联仓库<span class="title-line"></span></h2>
-  <div class="tech-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="tech-grid" style="grid-template-columns: repeat(4, 1fr);">
     <a href="https://gitee.com/tydfgt/anzhuo" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#128241;</div>
       <h4>anzhuo</h4>
       <p style="color:var(--text-secondary);font-size:0.85rem;">安卓客户端<br/>AGV导航 + 云台APP</p>
+    </a>
+    <a href="https://gitee.com/tydfgt/windowsxunjianat" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#128187;</div>
+      <h4>windowsxunjianat</h4>
+      <p style="color:var(--text-secondary);font-size:0.85rem;">Windows桌面版<br/>AGV导航巡检</p>
     </a>
     <a href="https://gitee.com/tydfgt/robothouduan" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#9881;</div>

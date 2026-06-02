@@ -69,7 +69,7 @@
       </p>
       <div class="hero-stats">
         <div class="stat-card">
-          <span class="stat-value" data-count="83">0</span>
+          <span class="stat-value" data-count="86">0</span>
           <span class="stat-unit">%</span>
           <span class="stat-label">总体进度</span>
         </div>
@@ -78,7 +78,7 @@
           <span class="stat-label">已解决问题</span>
         </div>
         <div class="stat-card">
-          <span class="stat-value" data-count="3">0</span>
+          <span class="stat-value" data-count="4">0</span>
           <span class="stat-label">已完成阶段</span>
         </div>
       </div>
@@ -109,11 +109,16 @@
 <!-- 关联仓库 -->
 <section class="section">
   <h2 class="section-title"><span class="title-icon">&#128451;</span>关联仓库<span class="title-line"></span></h2>
-  <div class="tech-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="tech-grid" style="grid-template-columns: repeat(4, 1fr);">
     <a href="https://gitee.com/tydfgt/anzhuo" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#128241;</div>
       <h4>anzhuo</h4>
       <p style="color:var(--text-secondary);font-size:0.85rem;">安卓客户端<br/>AGV导航 + 云台APP</p>
+    </a>
+    <a href="https://gitee.com/tydfgt/windowsxunjianat" target="_blank" class="tech-card" style="text-decoration:none;">
+      <div class="tech-icon">&#128187;</div>
+      <h4>windowsxunjianat</h4>
+      <p style="color:var(--text-secondary);font-size:0.85rem;">Windows桌面版<br/>AGV导航巡检</p>
     </a>
     <a href="https://gitee.com/tydfgt/robothouduan" target="_blank" class="tech-card" style="text-decoration:none;">
       <div class="tech-icon">&#9881;</div>
@@ -135,10 +140,10 @@
     <div class="progress-ring-container">
       <svg class="progress-ring" viewBox="0 0 200 200">
         <circle class="ring-bg" cx="100" cy="100" r="85"/>
-        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="91"/>
+        <circle class="ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="75"/>
       </svg>
       <div class="progress-ring-text">
-        <span class="ring-percent">83%</span>
+        <span class="ring-percent">86%</span>
         <span class="ring-label">整体进度</span>
       </div>
     </div>
@@ -178,6 +183,15 @@
       <div class="progress-track">
         <div class="progress-fill" style="width:30%"></div>
       </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header">
+        <span class="progress-name">Windows桌面版迁移</span>
+        <span class="progress-percent">100%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:100%"></div>
+      </div>
     </div></div>
   </div>
 </section>
@@ -190,6 +204,18 @@
       <span class="weekly-card-date">2026 年 5 月 22 日</span>
       <h3>第21周 · AGV 导航APP v1.0.0 发布</h3>
       <p>完成 AGV 导航 APP (AGVNav) v1.0.0 发布，包含任务链编辑/执行引擎、MJPEG 视频流、TTS 喊话、导航点管理、地图编辑器（四顶点弹窗+离线瓦片）、摇杆控制、Cyber 科技风 UI 组件库。</p>
+      
+      <div class="progress-mini">
+        <span class="progress-mini-label">100%</span>
+        <div class="progress-mini-track">
+          <div class="progress-mini-fill" style="width:100%"></div>
+        </div>
+      </div>
+    </a>
+    <a href="/weekly/2026-05-22-week09.html" class="weekly-card">
+      <span class="weekly-card-date">2026 年 5 月 22 日</span>
+      <h3>第22周 · Windows桌面版迁移与云端API集成</h3>
+      <p>完成 AGVNav 从 Android 到 Windows 桌面的跨平台迁移，包含 Qt 桌面编译配置、UI 适配、交接文档编写；树莓派后端集成云端巡检解析 API。</p>
       
       <div class="progress-mini">
         <span class="progress-mini-label">100%</span>
@@ -282,6 +308,20 @@ AGV 导航 APP 实机场地联调测试，海康摄像头 PTZ 自动巡检，APK
 APK 体积与内存优化
 多机...</p>
         <span class="timeline-status active">进行中</span>
+      </div>
+    </div>
+    <div class="timeline-item left done">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026-05-18 ~ 05-22</span>
+        <h4>Windows桌面版迁移</h4>
+        <p>阶段目标
+将 AGVNav 从 Android 完整迁移至 Windows 桌面平台，保证全部功能跨平台兼容。
+关键交付物
+
+Windows 桌面版 AGVNav.exe (调试版 + 发布版)
+控件...</p>
+        <span class="timeline-status done">已完成</span>
       </div>
     </div></div>
 </section>
