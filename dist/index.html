@@ -133,6 +133,92 @@
   </div>
 </section>
 
+<!-- 技术架构 -->
+<section id="tech" class="section">
+  <h2 class="section-title"><span class="title-icon">&#9881;</span>技术架构<span class="title-line"></span></h2>
+
+  <div class="arch-flow">
+    <!-- 客户端层 -->
+    <div class="arch-layer">
+      <div class="arch-label">客户端</div>
+      <div class="arch-items">
+        <div class="arch-item android">
+          <span class="arch-icon">&#128241;</span>
+          <strong>Android 平板</strong>
+          <p>Qt 6.8 + QML<br/>AGVNav APK<br/>arm64-v8a</p>
+        </div>
+        <div class="arch-item windows">
+          <span class="arch-icon">&#128187;</span>
+          <strong>Windows PC</strong>
+          <p>Qt 6.8 Desktop<br/>AGVNav.exe<br/>键鼠交互</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-arrow">▼ HTTP / WebSocket ▼</div>
+
+    <!-- 后端层 -->
+    <div class="arch-layer">
+      <div class="arch-label">后端 · 树莓派</div>
+      <div class="arch-items">
+        <div class="arch-item backend">
+          <span class="arch-icon">&#9881;</span>
+          <strong>FastAPI :5003</strong>
+          <p>Python 3<br/>uvicorn<br/>统一控制中心 v3.0</p>
+        </div>
+        <div class="arch-item backend">
+          <span class="arch-icon">&#128225;</span>
+          <strong>C++ PTZ Server</strong>
+          <p>TCP :9988<br/>海康 SDK<br/>MJPEG :9990</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-arrow">▼ GPIO / RS-485 / TCP ▼</div>
+
+    <!-- 硬件层 -->
+    <div class="arch-layer">
+      <div class="arch-label">硬件</div>
+      <div class="arch-items">
+        <div class="arch-item hardware">
+          <span class="arch-icon">&#9889;</span>
+          <strong>GPIO</strong>
+          <p>引脚 22/27<br/>BCM 编号</p>
+        </div>
+        <div class="arch-item hardware">
+          <span class="arch-icon">&#128247;</span>
+          <strong>海康摄像头</strong>
+          <p>PTZ 云台<br/>SDK 控制</p>
+        </div>
+        <div class="arch-item hardware">
+          <span class="arch-icon">&#128266;</span>
+          <strong>USB 声卡</strong>
+          <p>PCM 音频<br/>ALSA 播放</p>
+        </div>
+        <div class="arch-item hardware">
+          <span class="arch-icon">&#9881;</span>
+          <strong>PELCO-D 云台</strong>
+          <p>RS-485<br/>/dev/ttySC0</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-arrow">▼ HTTP Trigger ▼</div>
+
+    <!-- 云端层 -->
+    <div class="arch-layer">
+      <div class="arch-label">云端</div>
+      <div class="arch-items single">
+        <div class="arch-item cloud">
+          <span class="arch-icon">&#9729;</span>
+          <strong>巡检服务器</strong>
+          <p>8.148.200.227 :9998<br/>图片解析 API<br/>巡检记录存储</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 进度总览 -->
 <section id="progress" class="section">
   <h2 class="section-title"><span class="title-icon">&#9776;</span>进度总览<span class="title-line"></span></h2>

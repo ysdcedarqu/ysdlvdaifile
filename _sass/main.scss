@@ -141,6 +141,54 @@ body {
     font-weight: 700;
     color: var(--accent);
 }
+
+/* ============ 技术架构图 ============ */
+.arch-flow {
+    display: flex; flex-direction: column; gap: 0;
+    max-width: 960px; margin: 0 auto;
+}
+.arch-layer {
+    display: flex; align-items: flex-start; gap: 1.5rem;
+    padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px;
+    background: var(--bg-card); backdrop-filter: blur(10px);
+}
+.arch-label {
+    min-width: 110px; padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, rgba(0,240,255,0.12), rgba(124,58,237,0.12));
+    border-radius: 8px; font-family: 'Orbitron', monospace;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+    color: var(--accent); text-align: center;
+}
+.arch-items { display: flex; flex-wrap: wrap; gap: 0.75rem; flex: 1; }
+.arch-items.single { justify-content: center; }
+.arch-item {
+    flex: 1; min-width: 150px; padding: 1rem;
+    border: 1px solid var(--border); border-radius: 8px;
+    text-align: center; transition: all 0.3s;
+}
+.arch-item:hover { border-color: var(--accent); box-shadow: var(--glow); }
+.arch-item .arch-icon { font-size: 1.5rem; display: block; margin-bottom: 0.35rem; }
+.arch-item strong { display: block; font-size: 0.85rem; color: var(--text-primary); margin-bottom: 0.35rem; }
+.arch-item p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+.arch-item.android { border-left: 3px solid #3ddc84; }
+.arch-item.windows { border-left: 3px solid #0078d4; }
+.arch-item.backend { border-left: 3px solid var(--accent); }
+.arch-item.hardware { border-left: 3px solid var(--warning); }
+.arch-item.cloud { border-left: 3px solid var(--accent2); }
+
+.arch-arrow {
+    text-align: center; padding: 0.6rem 0;
+    font-family: 'Orbitron', monospace; font-size: 0.75rem;
+    letter-spacing: 2px; color: var(--accent); opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .arch-layer { flex-direction: column; align-items: stretch; }
+    .arch-label { min-width: auto; }
+    .arch-item { min-width: 0; }
+}
+
 .section { max-width: 1280px; margin: 0 auto; padding: 6rem 2rem; }
 .section-title {
     font-family: 'Orbitron', monospace; font-size: 1.75rem; font-weight: 700;
