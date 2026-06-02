@@ -16,8 +16,8 @@ const sass = require('sass');
 // ============ 配置 ============
 const CONFIG = {
   baseurl: process.env.BASEURL || '',
-  siteTitle: '履带式巡检车 · 项目进度看板',
-  siteDesc: 'YSDLAB Crawler Inspection Vehicle Progress Report',
+  siteTitle: 'AGV 导航与机器人控制系统 · 进度看板',
+  siteDesc: 'AGV Navigation & Robot Control System - YSDLAB',
   contentDir: path.join(__dirname, 'content'),
   layoutsDir: path.join(__dirname, '_layouts'),
   sassDir: path.join(__dirname, '_sass'),
