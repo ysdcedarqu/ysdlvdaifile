@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第21周 · AGV 导航APP v1.0.0 发布 · AGV 导航与机器人控制系统 · 进度看板</title>
+    <title>第21周 · AGV导航v1.0发布与Windows桌面版迁移 · AGV 导航与机器人控制系统 · 进度看板</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <meta name="description" content="AGV Navigation &amp; Robot Control System - YSDLAB">
-    <meta property="og:title" content="第21周 · AGV 导航APP v1.0.0 发布 · AGV 导航与机器人控制系统 · 进度看板">
+    <meta property="og:title" content="第21周 · AGV导航v1.0发布与Windows桌面版迁移 · AGV 导航与机器人控制系统 · 进度看板">
     <meta property="og:description" content="AGV Navigation &amp; Robot Control System - YSDLAB">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
       <a href="/weekly/" class="post-back">← 返回周报列表</a>
       <header class="post-header">
         <span class="post-date">2026 年 5 月 22 日</span>
-        <h1>第21周 · AGV 导航APP v1.0.0 发布</h1>
+        <h1>第21周 · AGV导航v1.0发布与Windows桌面版迁移</h1>
         <div class="post-org">
           <span class="org-name">粤水电智能制造研究院</span>
           <span class="org-divider">|</span>
@@ -273,6 +273,44 @@ adb -s 1c7d8049 install -r android-build/AGVNav.apk
 <td>API 文档</td>
 <td>40+ 端点完整文档</td>
 <td>✅</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Windows 桌面版迁移 (windowsxunjianat)</h3>
+<ul>
+<li>✅ Qt 编译套件切换: android_arm64_v8a → gcc_64 (Desktop)</li>
+<li>✅ UI 适配: 触摸→键鼠、平板竖屏→PC横屏、高DPI支持</li>
+<li>✅ TTS 引擎: Android TextToSpeech → QTextToSpeech (SAPI)</li>
+<li>✅ 全功能验证: 任务链/地图/摇杆/MJPEG 均通过</li>
+<li>✅ 文档: Windows版项目交接文档 + 迁移准备清单</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>平台差异</th>
+<th>Android</th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>构建工具链</td>
+<td>android-clang + NDK</td>
+<td>gcc_64</td>
+</tr>
+<tr>
+<td>安装方式</td>
+<td>adb install APK</td>
+<td>运行 .exe</td>
+</tr>
+<tr>
+<td>触摸交互</td>
+<td>TouchHandler</td>
+<td>MouseArea + 键盘</td>
+</tr>
+<tr>
+<td>TTS 引擎</td>
+<td>Android TTS</td>
+<td>SAPI / QTextToSpeech</td>
 </tr>
 </tbody></table>
 <h2>下阶段计划</h2>
